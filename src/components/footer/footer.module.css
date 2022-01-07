@@ -1,0 +1,14 @@
+footer {
+  display: flex;
+  height: 62px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.footer_container {
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80vw;
+  height: 100%;
+}
