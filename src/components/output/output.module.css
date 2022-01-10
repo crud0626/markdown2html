@@ -5,6 +5,60 @@
   overflow-y: auto;
   border: 1px solid rgba(0, 0, 0, 0.4);
   border-radius: 3px;
+  background-color: white;
 }
 
-/* markdown css */
+/* markdown css nested 적용예정. */
+
+.output_box > *:first-child {
+  margin-top: 0;
+}
+
+.output_box > *:last-child {
+  margin-bottom: 0;
+}
+
+/* heading border-bottom */
+
+.output_box h1,h2,h3,h4,h5,h6 {
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid gray;
+}
+
+.output_box blockquote {
+  padding: 0 1em;
+  color: #57606a;
+  border-left: 0.25em solid #d0d7de;
+}
+
+.output_box code {
+  padding: 0.2em 0.4em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(175, 184, 193, 0.2);
+  border-radius: 6px;
+}
+
+.output_box a {
+  color: #0969da;
+  text-decoration: none;
+}
+
+.output_box pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f6f8fa;
+  border-radius: 6px;
+}
+
+.output_box pre code {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-size: 100%;
+  overflow: visible;
+}
+
