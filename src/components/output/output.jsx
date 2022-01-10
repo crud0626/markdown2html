@@ -1,12 +1,13 @@
 import React from 'react';
-import ReactMarkdown from 'react-markdown';
 import styles from './output.module.css';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 
 const Output = ({text}) => {
     return (
         <div id='output' className={styles.output_box}>
-            <ReactMarkdown children={text} />
+            <ReactMarkdown children={text} remarkPlugins={[remarkGfm]} />
         </div>
     );
 }
