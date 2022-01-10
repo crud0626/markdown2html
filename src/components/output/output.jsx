@@ -6,7 +6,7 @@ const Output = ({text}) => {
     console.log(text);
 
     return (
-        <div className={styles.output}>
+        <div className={styles.output_box}>
             <ReactMarkdown children={text} />
         </div>
     );
