@@ -2,24 +2,24 @@ import React from 'react';
 import styles from './output.module.css';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-
+import remarkEmoji from 'remark-emoji';
 
 const Output = ({text}) => {
     return (
         <div id='output' className={styles.output_box}>
             <ReactMarkdown 
                 children={text} 
-                remarkPlugins={[remarkGfm]} 
+                remarkPlugins={[remarkGfm, remarkEmoji]} 
                 linkTarget="_blank"
-                components={{
-                    a: ({ node, children, ...props}) => {
+                components={
+                    {a: ({ node, children, ...props}) => {
                         const linkProps = props;
                         if (props.target === '_blank') {
                             linkProps['rel'] = 'noopener noreferrer';
                         }
                         return <a {...linkProps}>{children}</a>
-                    }
-                }}
+                    }}
+                }
             />
         </div>
     );
