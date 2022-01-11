@@ -7,7 +7,20 @@ import remarkGfm from 'remark-gfm';
 const Output = ({text}) => {
     return (
         <div id='output' className={styles.output_box}>
-            <ReactMarkdown children={text} remarkPlugins={[remarkGfm]} />
+            <ReactMarkdown 
+                children={text} 
+                remarkPlugins={[remarkGfm]} 
+                linkTarget="_blank"
+                components={{
+                    a: ({ node, children, ...props}) => {
+                        const linkProps = props;
+                        if (props.target === '_blank') {
+                            linkProps['rel'] = 'noopener noreferrer';
+                        }
+                        return <a {...linkProps}>{children}</a>
+                    }
+                }}
+            />
         </div>
     );
 }
