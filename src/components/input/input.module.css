@@ -1,8 +1,35 @@
-.input_box {
-  padding: 10px;
+.input_container {
+  position: relative;
   width: 45%;
   height: 50vh;
+}
+
+.input_box {
+  padding: 10px;
+  width: 100%;
+  height: 100%;
   border: 1px solid rgba(0, 0, 0, 0.4);
   border-radius: 3px;
   resize: none;
+}
+
+.eraser_btn {
+  top: 10px;
+  right: 10px;
+  position: absolute;
+  padding: 0;
+  width: 16px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: transform 300ms;
+}
+
+/* scale말고 색깔 변환으로 할껀데 image로 받아와버려서 고민중. */
+.eraser_btn:hover {
+  transform: scale(1.1);
+}
+
+.eraser_btn > img {
+  width: 100%;
 }

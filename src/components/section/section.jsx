@@ -1,21 +1,28 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import Input from '../input/input';
 import Output from '../output/output';
 import styles from './section.module.css';
 
 const Section = (props) => {
-    const [text, setText] = useState("");
+    const [text, setText] = useState("blahblah");
 
-    const onKeyUp = (event) => {
-        console.log(event.target.value);
+    const changeFormValue = (event) => {
         setText(event.target.value);
     }
+
+    const onClickEraser = useCallback(() => {
+        setText("");
+    })
 
     return (
         <section className={styles.section}>
             <div className={styles.section_container}>
-                <Input onKeyUp={onKeyUp}/>
-                <Output text={text}/>
+                <Input 
+                    changeFormValue={changeFormValue}
+                    onClickEraser={onClickEraser}
+                    text={text}
+                />
+                <Output text={text} />
             </div>
         </section>
     );
