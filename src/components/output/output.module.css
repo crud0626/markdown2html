@@ -1,7 +1,7 @@
 .output_box {
   padding: 10px;
   width: 45%;
-  height: 50vh;
+  height: 100%;
   overflow-y: auto;
   border: 1px solid rgba(0, 0, 0, 0.4);
   border-radius: 3px;
@@ -20,7 +20,17 @@
 
 /* heading border-bottom */
 
-.output_box h1,h2,h3,h4,h5,h6 {
+.output_box h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 24px 0 16px 0;
+}
+
+.output_box h1,
+h2 {
   padding-bottom: 0.3em;
   border-bottom: 1px solid #d8dee4;
 }
@@ -81,7 +91,6 @@
   content: "]";
 }
 
-
 /* react 때문인지 class 명으로 안먹히고 속성명으로 먹힘. */
 .output_box a[class="footnote-ref"] {
   position: relative;
@@ -98,6 +107,15 @@
 .output_box table tr {
   background-color: #ffffff;
   border-top: 1px solid #d8dee4;
+}
+
+.output_box table tr:nth-child(even) {
+  background-color: #f6f8fa;
+}
+
+.output_box table td {
+  padding: 6px 13px;
+  border: 1px solid #d0d7de;
 }
 
 .output_box table th {
