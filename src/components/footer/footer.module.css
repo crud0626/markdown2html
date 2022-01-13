@@ -11,6 +11,11 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 80vw;
+  width: 80%;
   height: 100%;
+}
+
+.link_btn > img:hover {
+  filter: opacity(0.5) drop-shadow(0 0 0 gray);
+  -webkit-filter: opacity(0.5) drop-shadow(0 0 0 gray);
 }

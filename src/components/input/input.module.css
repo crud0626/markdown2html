@@ -24,11 +24,11 @@
   background: white;
   cursor: pointer;
   transition: transform 300ms;
+  opacity: 0.6;
 }
 
-/* scale말고 색깔 변환으로 할껀데 image로 받아와버려서 고민중. */
 .eraser_btn:hover {
-  transform: scale(1.1);
+  opacity: 1;
 }
 
 .eraser_btn > img {
