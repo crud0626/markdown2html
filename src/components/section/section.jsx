@@ -29,6 +29,14 @@ const Section = (props) => {
         file.readAsText(event.target.files[0]);
     }
 
+    const downloadMD = () => {
+        let link = document.createElement("a");
+        link.download = "README.md";
+        const blob = new Blob([text], {type: "text/plain"})
+        link.href = window.URL.createObjectURL(blob);
+        link.click();
+    }
+
     return (
         <section className={styles.section}>
             <div className={styles.section_container}>
@@ -43,6 +51,7 @@ const Section = (props) => {
                 <Buttons 
                     copyText={copyText}
                     uploadFile={uploadFile}
+                    downloadMD={downloadMD}
                 />
             </div>
         </section>

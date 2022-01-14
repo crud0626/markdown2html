@@ -9,7 +9,7 @@ const Buttons = (props) => (
                 </form>
                 <img src="./images/plus.png" alt="add button" />
             </label>
-            <button className={styles.button}>
+            <button className={styles.button} onClick={props.downloadMD}>
                 <img src="./images/download.png" alt="download button" />
             </button>
             <button className={styles.button} onClick={props.copyText}>
