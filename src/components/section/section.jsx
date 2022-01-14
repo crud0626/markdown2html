@@ -16,9 +16,12 @@ const Section = (props) => {
     })
 
     const copyText = () => {
-        const input = document.querySelector('#inputbox');
-        input.select();
-        navigator.clipboard.write(text);
+        const inputArea = document.querySelector('#inputbox');
+        if (inputArea.value) {
+            navigator.clipboard.writeText(inputArea.value)
+            .then()
+            .catch(error => console.log(`Failed copy! : ${error}`))
+        }
     }
 
     const uploadFile = (event) => {
