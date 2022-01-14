@@ -1,4 +1,5 @@
 import React, { useCallback, useState } from 'react';
+import Buttons from '../buttons/buttons';
 import Input from '../input/input';
 import Output from '../output/output';
 import styles from './section.module.css';
@@ -14,6 +15,20 @@ const Section = (props) => {
         setText("");
     })
 
+    const copyText = () => {
+        const input = document.querySelector('#inputbox');
+        input.select();
+        navigator.clipboard.write(text);
+    }
+
+    const uploadFile = (event) => {
+        const file = new FileReader();
+        file.onload = () => {
+            setText(file.result);
+        }
+        file.readAsText(event.target.files[0]);
+    }
+
     return (
         <section className={styles.section}>
             <div className={styles.section_container}>
@@ -23,6 +38,12 @@ const Section = (props) => {
                     text={text}
                 />
                 <Output text={text} />
+            </div>
+            <div className={styles.buttons_container}>
+                <Buttons 
+                    copyText={copyText}
+                    uploadFile={uploadFile}
+                />
             </div>
         </section>
     );

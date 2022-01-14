@@ -1,0 +1,16 @@
+.button {
+  padding: 5px;
+  border: 1px solid white;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+  user-select: none;
+}
+
+.button:active {
+  background: #d9d5c5;
+}
+
+form > input[type="file"] {
+  display: none;
+}
