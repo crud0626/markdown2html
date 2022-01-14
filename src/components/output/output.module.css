@@ -55,7 +55,8 @@ h2 {
   text-decoration: none;
 }
 
-.output_box ul {
+.output_box ul,
+.output_box ol {
   padding-left: 32px;
 }
 

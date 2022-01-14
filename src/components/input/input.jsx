@@ -6,6 +6,7 @@ const Input = (props) => {
     return (
         <div className={styles.input_container}>
         <textarea 
+            id="inputbox"
             className={styles.input_box} 
             onChange={props.changeFormValue} 
             value={props.text}
