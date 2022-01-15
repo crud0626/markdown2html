@@ -4,9 +4,9 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import remarkEmoji from 'remark-emoji';
 
-const Output = ({text}) => {
+const Output = ({text, outputRef}) => {
     return (
-        <div id='output' className={styles.output_box}>
+        <div ref={outputRef} id='output' className={styles.output_box}>
             <ReactMarkdown 
                 children={text} 
                 remarkPlugins={[remarkGfm, remarkEmoji]} 

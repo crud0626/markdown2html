@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import Buttons from '../buttons/buttons';
 import Input from '../input/input';
 import Output from '../output/output';
@@ -6,6 +6,9 @@ import styles from './section.module.css';
 
 const Section = (props) => {
     const [text, setText] = useState("# MD TO HTML\nHello, This is a site that converts markdown into html.\n## Features\n1. You can download it to markdown(.md) or html(.txt)\n2. If you have an already written md file, you can upload it.\n3. The result is the same as Github\n4. It is free!\n\n---\n\n> Thank you, enjoy!");
+
+    // test
+    const outputRef = useRef();
 
     const changeFormValue = (event) => {
         setText(event.target.value);
@@ -40,6 +43,16 @@ const Section = (props) => {
         link.click();
     }
 
+    const downloadHTML = () => {
+        const html = outputRef.current.innerHTML;
+        let link = document.createElement("a");
+        // asterisk.html로 출력안되는거 어떻게 해결할지 알아보기.
+        link.download = "*.html";
+        const blob = new Blob([html], {type: "text/plain"})
+        link.href = window.URL.createObjectURL(blob);
+        link.click();
+    }
+
     return (
         <section className={styles.section}>
             <div className={styles.section_container}>
@@ -48,13 +61,17 @@ const Section = (props) => {
                     onClickEraser={onClickEraser}
                     text={text}
                 />
-                <Output text={text} />
+                <Output 
+                    text={text} 
+                    outputRef={outputRef}
+                />
             </div>
             <div className={styles.buttons_container}>
                 <Buttons 
                     copyText={copyText}
                     uploadFile={uploadFile}
                     downloadMD={downloadMD}
+                    downloadHTML={downloadHTML}
                 />
             </div>
         </section>
