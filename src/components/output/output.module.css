@@ -159,3 +159,25 @@ section[class="footnotes"] ol {
 section[class="footnotes"] ol > li {
   margin: 16px 0;
 }
+
+/* scroll bar */
+
+.output_box::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.output_box::-webkit-scrollbar-thumb {
+  height: 17%;
+  background-color: #90a4ae;
+  border-radius: 10px;
+}
+
+.output_box::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+.output_box::-webkit-scrollbar-track {
+  background: #cfd8dc;
+  border-radius: 10px;
+}
