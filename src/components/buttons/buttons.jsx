@@ -5,7 +5,7 @@ const Buttons = (props) => (
         <div className={styles.buttons}>
             <label htmlFor='upload' className={styles.button}>
                 <form action="#">
-                    <input type="file" id='upload' accept='.txt,.md' onChange={props.uploadFile}/>
+                    <input type="file" id='upload' accept='.txt,.md' onChange={props.uploadTextFile}/>
                 </form>
                 <img src="./images/plus.png" alt="add button" />
             </label>

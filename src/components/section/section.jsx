@@ -7,7 +7,6 @@ import styles from './section.module.css';
 const Section = (props) => {
     const [text, setText] = useState("# MD TO HTML\nHello, This is a site that converts markdown into html.\n## Features\n1. You can download it to markdown(.md) or html(.txt)\n2. If you have an already written md file, you can upload it.\n3. The result is the same as Github\n4. It is free!\n\n---\n\n> Thank you, enjoy!");
 
-    // test
     const outputRef = useRef();
 
     const changeFormValue = (event) => {
@@ -27,12 +26,19 @@ const Section = (props) => {
         }
     }
 
-    const uploadFile = (event) => {
+    const uploadTextFile = (event) => {
+        event.preventDefault();
+        let uploadedFile = "";
+        if (event.type === "drop") {
+            uploadedFile = event.dataTransfer.files[0];
+        } else {
+            uploadedFile = event.target.files[0];
+        }
         const file = new FileReader();
         file.onload = () => {
             setText(file.result);
         }
-        file.readAsText(event.target.files[0]);
+        file.readAsText(uploadedFile);
     }
 
     const downloadMD = () => {
@@ -59,6 +65,7 @@ const Section = (props) => {
                 <Input 
                     changeFormValue={changeFormValue}
                     onClickEraser={onClickEraser}
+                    dragFile={uploadTextFile}
                     text={text}
                 />
                 <Output 
@@ -69,7 +76,7 @@ const Section = (props) => {
             <div className={styles.buttons_container}>
                 <Buttons 
                     copyText={copyText}
-                    uploadFile={uploadFile}
+                    uploadTextFile={uploadTextFile}
                     downloadMD={downloadMD}
                     downloadHTML={downloadHTML}
                 />
