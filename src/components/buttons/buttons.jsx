@@ -17,6 +17,7 @@ const Buttons = (props) => (
             </button>
             <button className={styles.button} onClick={props.copyText}>
                 <img src="./images/copy.png" alt="copy button" />
+                <span id='copyTooltip' className={`${styles.tooltip} ${styles.tooltip_bottom}`}>Copy Text</span>
             </button>
         </div>
     );

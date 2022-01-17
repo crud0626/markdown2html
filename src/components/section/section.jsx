@@ -15,13 +15,20 @@ const Section = (props) => {
 
     const onClickEraser = useCallback(() => {
         setText("");
-    })
+    },[])
 
     const copyText = () => {
+        const tooltip = document.querySelector("#copyTooltip");
         const inputArea = document.querySelector('#inputbox');
         if (inputArea.value) {
             navigator.clipboard.writeText(inputArea.value)
-            .then()
+            .then(() => {
+                tooltip.innerText = "Copied!";
+
+            })
+            .then(setTimeout(() => {
+                tooltip.innerText = "Copy Text";
+            }, 1500))
             .catch(error => console.log(`Failed copy! : ${error}`))
         }
     }
@@ -52,8 +59,7 @@ const Section = (props) => {
     const downloadHTML = () => {
         const html = outputRef.current.innerHTML;
         let link = document.createElement("a");
-        // asterisk.html로 출력안되는거 어떻게 해결할지 알아보기.
-        link.download = "*.html";
+        link.download = "mdtohtml.html";
         const blob = new Blob([html], {type: "text/plain"})
         link.href = window.URL.createObjectURL(blob);
         link.click();
