@@ -1,3 +1,5 @@
+@value sectionWidth from '../../common/sizes.css';
+
 .section {
   flex: 1;
   display: flex;
@@ -10,6 +12,6 @@
 .section_container {
   display: flex;
   justify-content: space-between;
-  width: 80%;
+  width: sectionWidth;
   height: 70%;
 }

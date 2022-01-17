@@ -1,5 +1,7 @@
+@value sectionWidth, headerHeight, btnImageSize from '../../common/sizes.css';
+
 header {
-  height: 62px;
+  height: headerHeight;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   color: white;
   background-color: #24292f;
@@ -10,7 +12,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 80%;
+  width: sectionWidth;
   height: 100%;
 }
 
@@ -21,8 +23,8 @@ header {
 
 .left > img {
   margin-right: 10px;
-  width: 32px;
-  height: 32px;
+  width: btnImageSize;
+  height: btnImageSize;
 }
 
 .left > h1 {

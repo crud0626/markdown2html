@@ -1,1 +1,6 @@
-@value;
+@value headerHeight: 62px;
+@value footerHeight: 62px;
+@value sectionWidth: 80%;
+@value btnImageSize: 32px;
+@value textBoxSize: 45%;
+@value textBoxBorderRadius: 3px;

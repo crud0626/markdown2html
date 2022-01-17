@@ -1,6 +1,8 @@
+@value sectionWidth, footerHeight from '../../common/sizes.css';
+
 footer {
   display: flex;
-  height: 62px;
+  height: footerHeight;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   background-color: #24292f;
   color: white;
@@ -11,7 +13,7 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 80%;
+  width: sectionWidth;
   height: 100%;
 }
 
