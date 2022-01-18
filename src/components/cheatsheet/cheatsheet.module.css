@@ -1,0 +1,127 @@
+@value sectionWidth, mobileSize from '../../common/sizes.css';
+
+.header > h2 {
+  text-align: center;
+}
+
+.cheatsheet_container {
+  margin: auto;
+  padding: 0 20px 20px 20px;
+  position: absolute;
+  width: sectionWidth;
+  height: 100%;
+  flex: 1 1;
+  background-color: beige;
+  z-index: 1;
+  overflow-y: scroll;
+}
+
+.sheet_body {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.sheet_container {
+  width: 45%;
+}
+
+.sheet {
+  width: 100%;
+}
+
+.sheet > p {
+  font-size: 1.3rem;
+}
+
+/* table */
+
+.sheet_container table {
+  width: 100%;
+  /* max-width: 100%; */
+  overflow: auto;
+  border-collapse: collapse;
+}
+
+.sheet_container table tr {
+  background-color: #ffffff;
+  border-top: 1px solid #d8dee4;
+}
+
+.sheet_container table tbody tr:nth-child(odd) {
+  background-color: #f6f8fa;
+}
+
+.sheet_container table td {
+  padding: 10px 15px;
+  border: 1px solid #d0d7de;
+}
+
+.sheet_container table th {
+  border: 1px solid #d0d7de;
+  padding: 6px 13px;
+  font-weight: 600;
+}
+
+.sheet_container hr {
+  height: 0.25em;
+  padding: 0;
+  margin: 24px 0;
+  background-color: #d0d7de;
+  border: 0;
+}
+
+.sheet table h1,
+.sheet table h2,
+.sheet table h3,
+.sheet table h4,
+.sheet table h5,
+.sheet table h6 {
+  margin: 0;
+}
+
+.sheet table blockquote {
+  margin: 0;
+  padding: 0 1em;
+  color: #57606a;
+  border-left: 0.25em solid #d0d7de;
+}
+
+.sheet table code {
+  padding: 0.2em 0.4em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(175, 184, 193, 0.2);
+  border-radius: 6px;
+}
+
+.sheet table pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f6f8fa;
+  border-radius: 6px;
+}
+
+.sheet table a {
+  color: #0969da;
+  text-decoration: none;
+}
+
+.sheet table ul,
+.sheet table ol {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.task_list {
+  list-style: none;
+}
+
+@media screen and (max-width: mobileSize) {
+  .sheet_container {
+    width: 90%;
+  }
+}

@@ -21,16 +21,16 @@
 /* heading border-bottom */
 
 .output_box h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+.output_box h2,
+.output_box h3,
+.output_box h4,
+.output_box h5,
+.output_box h6 {
   margin: 24px 0 16px 0;
 }
 
 .output_box h1,
-h2 {
+.output_box h2 {
   padding-bottom: 0.3em;
   border-bottom: 1px solid #d8dee4;
 }
@@ -92,7 +92,6 @@ h2 {
   content: "]";
 }
 
-/* react 때문인지 class 명으로 안먹히고 속성명으로 먹힘. */
 .output_box a[class="footnote-ref"] {
   position: relative;
 }

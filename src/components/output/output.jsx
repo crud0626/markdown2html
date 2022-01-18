@@ -4,11 +4,11 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import remarkEmoji from 'remark-emoji';
 
-const Output = React.forwardRef((props, ref) => {
+const Output = React.forwardRef(({text}, ref) => {
     return(
         <div ref={ref} id='output' className={styles.output_box}>
             <ReactMarkdown 
-                children={props.text} 
+                children={text} 
                 remarkPlugins={[remarkGfm, remarkEmoji]} 
                 linkTarget="_blank"
               components={

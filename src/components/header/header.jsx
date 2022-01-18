@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './header.module.css';
 
-const Header = (props) => (
+const Header = ({changeSheet}) => (
         <header>
             <div className={styles.header_container}>
                 <div className={styles.left}>
@@ -9,7 +9,7 @@ const Header = (props) => (
                     <h1>MD TO HTML</h1>
                 </div>
                 <div className={styles.right}>
-                    <button className={styles.cheatsheet_btn}>
+                    <button className={styles.cheatsheet_btn} onClick={changeSheet}>
                         CHEAT SHEET
                     </button>
                 </div>
