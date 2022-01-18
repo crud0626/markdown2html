@@ -13,3 +13,51 @@ body {
   flex-direction: column;
   height: 100vh;
 }
+
+/* arrow toggle */
+
+.arrow {
+  margin-left: 15px;
+  position: relative;
+  height: 11px;
+  width: 10px;
+}
+.arrow::before,
+.arrow::after {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  width: 0.15rem;
+  height: 100%;
+  transition: all 0.5s;
+}
+.arrow::before {
+  left: -3px;
+  transform: rotate(-45deg);
+  background-color: #394a6d;
+}
+.arrow::after {
+  left: 3px;
+  transform: rotate(45deg);
+  background-color: #394a6d;
+}
+.open .arrow::before {
+  left: -3px;
+  transform: rotate(45deg);
+}
+.open .arrow::after {
+  left: 3px;
+  transform: rotate(-45deg);
+}
+
+.open #inner_btns_container {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0%);
+}
+
+/* button */
+
+#dropdownBtn {
+  padding: 0;
+}

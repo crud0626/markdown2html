@@ -11,3 +11,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/*  */
+
+.active i {
+  transform: rotate(0);
+  transform: translate(0, -6px);
+}
+
+.active i::before {
+  transform: rotate(-45deg);
+}
+
+.active i::after {
+  transform: rotate(45deg);
+}

@@ -28,7 +28,7 @@ const Section = ({isSheet}) => {
 
             })
             .then(setTimeout(() => {
-                tooltip.innerText = "Copy Text";
+                tooltip.innerText = "Copy";
             }, 1500))
             .catch(error => console.log(`Failed copy! : ${error}`))
         }
@@ -80,14 +80,12 @@ const Section = ({isSheet}) => {
                     ref={outputRef}
                 />
             </div>
-            <div className={styles.buttons_container}>
-                <Buttons 
-                    copyText={copyText}
-                    uploadTextFile={uploadTextFile}
-                    downloadMD={downloadMD}
-                    downloadHTML={downloadHTML}
-                />
-            </div>
+            <Buttons 
+                copyText={copyText}
+                uploadTextFile={uploadTextFile}
+                downloadMD={downloadMD}
+                downloadHTML={downloadHTML}
+            />
             {isSheet && <Cheatsheet />}
         </section>
     );

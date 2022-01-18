@@ -1,25 +1,43 @@
 import React from 'react';
+import { useState } from 'react/cjs/react.development';
 import styles from './buttons.module.css';
 
-const Buttons = (props) => (
-        <div className={styles.buttons}>
+const Buttons = (props) => {
+    const [toggle, setToggle] = useState(false);
+
+    const onBtnToggle = () => {
+        setToggle(toggle => !toggle);
+    }
+
+    return(
+        <div className={styles.buttons_conatainer}>
             <label htmlFor='upload' className={styles.button}>
                 <form action="#">
                     <input type="file" id='upload' accept='.txt,.md' onChange={props.uploadTextFile}/>
                 </form>
+                <span>Add File</span>
                 <img src="./images/plus.png" alt="add button" />
             </label>
-            <button className={styles.button} onClick={props.downloadMD} title='MD'>
-                <img src="./images/download.png" alt="download button" />
-            </button>
-            <button className={styles.button} onClick={props.downloadHTML} title='HTML'>
-                <img src="./images/download.png" alt="download button" />
-            </button>
+            <div id='dropdownBtn' className={`${styles.button} ${toggle ? "open": ""}`} onClick={onBtnToggle}>
+                <div className={styles.button_bar}>
+                    <span>Download</span>
+                    <div className="arrow"></div>
+                </div>
+                <div id='inner_btns_container' className={styles.inner_btns_container}>
+                    <button className="inner_btn" onClick={props.downloadMD} title='MD'>
+                        MARKDOWN
+                    </button>
+                    <button className="inner_btn" onClick={props.downloadHTML} title='HTML'>
+                        HTML
+                    </button>
+                </div>
+            </div>
             <button className={styles.button} onClick={props.copyText}>
+                <span id='copyTooltip'>Copy</span>
                 <img src="./images/copy.png" alt="copy button" />
-                <span id='copyTooltip' className={`${styles.tooltip} ${styles.tooltip_bottom}`}>Copy Text</span>
             </button>
         </div>
     );
+};
 
 export default Buttons;

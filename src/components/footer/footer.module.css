@@ -1,6 +1,7 @@
 @value sectionWidth, footerHeight from '../../common/sizes.css';
 
 footer {
+  flex-shrink: 0;
   display: flex;
   height: footerHeight;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
