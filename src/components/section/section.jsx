@@ -49,19 +49,17 @@ const Section = ({isSheet}) => {
         file.readAsText(uploadedFile);
     }
 
-    const downloadMD = () => {
+    const downloadFile = (event) => {
         let link = document.createElement("a");
-        link.download = "README.md";
-        const blob = new Blob([text], {type: "text/plain"})
-        link.href = window.URL.createObjectURL(blob);
-        link.click();
-    }
-
-    const downloadHTML = () => {
-        const html = outputRef.current.innerHTML;
-        let link = document.createElement("a");
-        link.download = "mdtohtml.html";
-        const blob = new Blob([html], {type: "text/plain"})
+        let data = "";
+        if (event.target.dataset.title) {
+            data = outputRef.current.innerHTML;
+            link.download = "mdtohtml.html";
+        } else {
+            data = text;
+            link.download = "README.md";
+        }
+        const blob = new Blob([data], {type: "text/plain"})
         link.href = window.URL.createObjectURL(blob);
         link.click();
     }
@@ -83,8 +81,7 @@ const Section = ({isSheet}) => {
             <Buttons 
                 copyText={copyText}
                 uploadTextFile={uploadTextFile}
-                downloadMD={downloadMD}
-                downloadHTML={downloadHTML}
+                downloadFile={downloadFile}
             />
             {isSheet && <Cheatsheet />}
         </section>

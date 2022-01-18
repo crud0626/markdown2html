@@ -24,10 +24,10 @@ const Buttons = (props) => {
                     <div className="arrow"></div>
                 </div>
                 <div id='inner_btns_container' className={styles.inner_btns_container}>
-                    <button className="inner_btn" onClick={props.downloadMD} title='MD'>
+                    <button className="inner_btn" onClick={props.downloadFile}>
                         MARKDOWN
                     </button>
-                    <button className="inner_btn" onClick={props.downloadHTML} title='HTML'>
+                    <button className="inner_btn" data-title="html" onClick={props.downloadFile}>
                         HTML
                     </button>
                 </div>
