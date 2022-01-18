@@ -76,7 +76,7 @@ const Section = (props) => {
                 />
                 <Output 
                     text={text} 
-                    outputRef={outputRef}
+                    ref={outputRef}
                 />
             </div>
             <div className={styles.buttons_container}>
