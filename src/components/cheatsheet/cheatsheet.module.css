@@ -11,6 +11,7 @@
   width: sectionWidth;
   height: 100%;
   flex: 1 1;
+  border-left: 1px solid #f6f8fa;
   background-color: beige;
   z-index: 1;
   overflow-y: scroll;

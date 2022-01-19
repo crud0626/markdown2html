@@ -26,11 +26,11 @@
   background: white;
   cursor: pointer;
   transition: transform 300ms;
-  opacity: 0.6;
+  fill: gray;
 }
 
 .eraser_btn:hover {
-  opacity: 1;
+  fill: black;
 }
 
 .eraser_btn > img {

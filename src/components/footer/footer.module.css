@@ -4,7 +4,7 @@ footer {
   flex-shrink: 0;
   display: flex;
   height: footerHeight;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid #f6f8fa;
   background-color: #24292f;
   color: white;
 }
@@ -18,7 +18,11 @@ footer {
   height: 100%;
 }
 
-.link_btn > img:hover {
-  filter: opacity(0.5) drop-shadow(0 0 0 gray);
-  -webkit-filter: opacity(0.5) drop-shadow(0 0 0 gray);
+.link_btn > svg {
+  width: 32px;
+  fill: gray;
+}
+
+.link_btn:hover > svg {
+  fill: white;
 }

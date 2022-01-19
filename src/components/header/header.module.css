@@ -3,7 +3,7 @@
 header {
   flex-shrink: 0;
   height: headerHeight;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #f6f8fa;
   color: white;
   background-color: #24292f;
 }

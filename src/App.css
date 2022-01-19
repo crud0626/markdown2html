@@ -34,12 +34,12 @@ body {
 .arrow::before {
   left: -3px;
   transform: rotate(-45deg);
-  background-color: #394a6d;
+  background: #394a6d;
 }
 .arrow::after {
   left: 3px;
   transform: rotate(45deg);
-  background-color: #394a6d;
+  background: #394a6d;
 }
 .open .arrow::before {
   left: -3px;
@@ -60,4 +60,104 @@ body {
 
 #dropdownBtn {
   padding: 0;
+}
+
+/* dark toggle test */
+
+
+.dark-mode-button { 
+  display: inline-block;
+  position: fixed;
+  bottom: 75px;
+  right: 5%;
+  width: 45px;
+  height: 30px;
+} 
+
+.dark-mode-button input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+} 
+
+.dark-mode-button .onoff-switch {
+  position: absolute;
+  cursor: pointer; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  height: 12px; 
+  background-color: #fff; 
+  box-shadow: 1px 1px 3px #eaeaea, -1px -1px 3px #eaeaea; 
+  border-radius: 20px; 
+  -webkit-transition: .4s; 
+  transition: .4s; 
+} 
+
+.dark-mode-button .onoff-switch:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 4px;
+  top: -5px;
+  background-image: url("../public/images/sun.png");
+  background-size: 15px;
+  background-position: center;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  -webkit-transition: .5s; transition: .4s; border-radius: 20px; box-shadow: 1px 1px 3px #eaeaea; 
+} 
+
+.dark-mode-button input:checked + .onoff-switch {
+  background-color: #007ff4; box-shadow: inset 1px 1px 2px #222; 
+} 
+
+.dark-mode-button input:checked + .onoff-switch:before {
+  background-image: url("../public/images/moon.png"); background-color: white; box-shadow: none; -webkit-transform: translateX(16px); -ms-transform: translateX(16px); transform: translateX(16px); 
+}
+
+/* dark mode */
+
+section.dark {
+  background: #24292f;
+  color: white;
+}
+
+section.dark #output,
+section.dark #inputbox {
+  background: #1e1f21;
+  color: white;
+}
+
+section.dark div.cheatsheet_container {
+  background: #24292f;
+  color: white;
+}
+
+section.dark div.cheatsheet_container th,
+section.dark div.cheatsheet_container td {
+  background: #1e1f21;
+  color: white;
+}
+
+section.dark div.cheatsheet_container td pre {
+  background: rgba(175, 184, 193, 0.2); 
+}
+
+section.dark div.buttons_container > .button {
+  background: #1e1f21;
+  color: white;
+  fill: white;
+}
+
+section.dark div.buttons_container div.arrow::after,
+section.dark div.buttons_container div.arrow::before {
+  background: white;
+}
+
+section.dark .inner_btn {
+  background: #1e1f21;
+  color: white
 }

@@ -1,4 +1,5 @@
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import DarkButton from '../../darkbutton/darkbutton';
 import Buttons from '../buttons/buttons';
 import Cheatsheet from '../cheatsheet/cheatsheet';
 import Input from '../input/input';
@@ -7,6 +8,8 @@ import styles from './section.module.css';
 
 const Section = ({isSheet}) => {
     const [text, setText] = useState("# MD TO HTML\nHello, This is a site that converts markdown into html.\n## Features\n1. You can download it to markdown(.md) or html(.txt)\n2. If you have an already written md file, you can upload it.\n3. The result is the same as Github\n4. It is free!\n\n---\n\n> Thank you, enjoy!");
+
+    const [darkmode, setDarkmode] = useState(false);
 
     const outputRef = useRef();
 
@@ -64,7 +67,18 @@ const Section = ({isSheet}) => {
         link.click();
     }
 
+    const changeDayNight = () => {
+        const section = document.querySelector("section");
+        if (darkmode) {
+            section.classList.remove("dark");
+        } else {
+            section.classList.add("dark");
+        }
+        setDarkmode(darkmode => !darkmode);
+    }
+
     return (
+        <>
         <section className={styles.section}>
             <div className={styles.section_container}>
                 <Input 
@@ -85,6 +99,10 @@ const Section = ({isSheet}) => {
             />
             {isSheet && <Cheatsheet />}
         </section>
+        <DarkButton 
+            onChangeDark={changeDayNight}
+        />
+        </>
     );
 }
 
