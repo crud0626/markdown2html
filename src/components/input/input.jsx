@@ -7,7 +7,7 @@ const Input = (props) => {
     }
 
     return (
-        <div className={styles.input_container}>
+        <div className={styles.container}>
         <textarea 
             id="inputbox"
             className={styles.input_box} 

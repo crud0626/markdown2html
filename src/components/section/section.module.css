@@ -1,6 +1,6 @@
 @value sectionWidth from '../../common/sizes.css';
 
-.section {
+.section_container {
   flex: 1;
   display: flex;
   position: relative;
@@ -10,9 +10,15 @@
   background-color: #f6f8fa;
 }
 
-.section_container {
+.section {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   width: sectionWidth;
   height: 70%;
+}
+
+@media screen and (max-width: 1024px) {
+  .section {
+    display: block;
+  }
 }

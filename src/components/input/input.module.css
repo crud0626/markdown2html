@@ -1,9 +1,11 @@
 @value textBoxSize, textBoxBorderRadius from '../../common/sizes.css';
 
-.input_container {
+.container {
   position: relative;
+  max-width: 600px;
+  min-width: 450px;
   width: textBoxSize;
-  height: 100%;
+  height: 500px;
 }
 
 .input_box {
@@ -58,4 +60,11 @@
 .input_box::-webkit-scrollbar-track {
   background: #cfd8dc;
   border-radius: 10px;
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    margin: 0 auto 50px auto;
+    width: 100%;
+  }
 }

@@ -79,8 +79,13 @@ const Section = ({isSheet}) => {
 
     return (
         <>
-        <section className={styles.section}>
-            <div className={styles.section_container}>
+        <section className={styles.section_container}>
+            <Buttons 
+                copyText={copyText}
+                uploadTextFile={uploadTextFile}
+                downloadFile={downloadFile}
+            />
+            <div className={styles.section}>
                 <Input 
                     changeFormValue={changeFormValue}
                     onClickEraser={onClickEraser}
@@ -92,11 +97,6 @@ const Section = ({isSheet}) => {
                     ref={outputRef}
                 />
             </div>
-            <Buttons 
-                copyText={copyText}
-                uploadTextFile={uploadTextFile}
-                downloadFile={downloadFile}
-            />
             {isSheet && <Cheatsheet />}
         </section>
         <DarkButton 

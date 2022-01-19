@@ -10,7 +10,7 @@ const Buttons = (props) => {
     }
 
     return(
-        <div className={`${styles.buttons_conatainer} buttons_container`}>
+        <div className={`${styles.container} buttons_container`}>
             <label htmlFor='upload' className={`${styles.button} button`}>
                 <form action="#">
                     <input type="file" id='upload' accept='.txt,.md' onChange={props.uploadTextFile}/>

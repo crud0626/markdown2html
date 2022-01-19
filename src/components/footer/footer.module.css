@@ -26,3 +26,12 @@ footer {
 .link_btn:hover > svg {
   fill: white;
 }
+
+.text {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.text > span:first-child {
+  margin-right: 10px;
+}
