@@ -11,6 +11,12 @@ body {
 
 body {
   height: 100%;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 #root {
@@ -19,6 +25,11 @@ body {
   min-width: 500px;
   height: 100%;
   min-height: 100vh;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 
 /* arrow toggle */
@@ -73,11 +84,10 @@ body {
 
 .dark-mode-button {
   display: inline-block;
-  position: fixed;
-  bottom: 75px;
-  right: 5%;
+  position: relative;
   width: 45px;
   height: 30px;
+  transform: translateY(10px);
 }
 
 .dark-mode-button input {
@@ -94,8 +104,7 @@ body {
   right: 0;
   bottom: 0;
   height: 12px;
-  background-color: #fff;
-  box-shadow: 1px 1px 3px #eaeaea, -1px -1px 3px #eaeaea;
+  background-color: #f6f8fa;
   border-radius: 20px;
   -webkit-transition: 0.4s;
   transition: 0.4s;
@@ -116,7 +125,6 @@ body {
   -webkit-transition: 0.5s;
   transition: 0.4s;
   border-radius: 20px;
-  box-shadow: 1px 1px 3px #eaeaea;
 }
 
 .dark-mode-button input:checked + .onoff-switch {
@@ -176,3 +184,18 @@ section.dark .inner_btn {
   background: #1e1f21;
   color: white;
 }
+
+/* ?? */
+
+/* .active i {
+  transform: rotate(0);
+  transform: translate(0, -6px);
+}
+
+.active i::before {
+  transform: rotate(-45deg);
+}
+
+.active i::after {
+  transform: rotate(45deg);
+} */

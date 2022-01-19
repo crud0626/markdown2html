@@ -8,32 +8,33 @@ header {
   background-color: #24292f;
 }
 
-.header_container {
+.container {
   margin: auto;
   display: flex;
+  /* 변경예정 */
   justify-content: space-between;
   align-items: center;
   width: sectionWidth;
   height: 100%;
 }
 
-.left {
+.center {
   display: flex;
   align-items: center;
 }
 
-.left > img {
+.center > img {
   margin-right: 10px;
   width: btnImageSize;
   height: btnImageSize;
 }
 
-.left > h1 {
+.center > h1 {
   font-size: 22px;
   font-weight: normal;
 }
 
-.right > .cheatsheet_btn {
+.left > .cheatsheet_btn {
   padding: 10px 15px;
   background: transparent;
   border: 1px solid white;
@@ -43,7 +44,7 @@ header {
   cursor: pointer;
 }
 
-.right > .cheatsheet_btn:hover {
+.left > .cheatsheet_btn:hover {
   color: black;
   border-color: black;
   background: #d9d5c5;
