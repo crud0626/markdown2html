@@ -11,7 +11,7 @@
 @value boxSize: 45%;
 @value boxBorderRadius: 3px;
 @value boxBorder: 1px solid rgba(0, 0, 0, 0.4);
-@value boxHeight: 500px;
+@value boxHeight: 400px;
 @value boxMaxWidth: 600px;
 @value boxMinWidth: 450px;
 @value boxMargin: 0 auto 50px auto;

@@ -139,6 +139,11 @@ section.dark div.buttons_container > .button:hover {
   color: black;
 }
 
+section.dark div.buttons_container > #dropdown_container:hover {
+  background: #1e1f21;
+  color: white;
+}
+
 section.dark div.buttons_container div.arrow::after,
 section.dark div.buttons_container div.arrow::before {
   background: white;

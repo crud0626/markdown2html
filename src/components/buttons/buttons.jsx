@@ -26,7 +26,7 @@ const Buttons = (props) => {
                     </g>
                 </svg>  
             </label>
-            <div className={`${styles.button} ${styles.dropdown_container} ${toggle ? "open": ""} button`} onClick={onBtnToggle}>
+            <div id='dropdown_container' className={`${styles.button} ${styles.dropdown_container} ${toggle ? "open": ""} button`} onClick={onBtnToggle}>
                 <div className={styles.dropdown_btn}>
                     <span>Download</span>
                     <div className="arrow"></div>
