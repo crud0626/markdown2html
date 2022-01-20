@@ -26,12 +26,12 @@ const Buttons = (props) => {
                     </g>
                 </svg>  
             </label>
-            <div id='dropdownBtn' className={`${styles.button} ${toggle ? "open": ""} button`} onClick={onBtnToggle}>
-                <div className={styles.button_bar}>
+            <div className={`${styles.button} ${styles.dropdown_container} ${toggle ? "open": ""} button`} onClick={onBtnToggle}>
+                <div className={styles.dropdown_btn}>
                     <span>Download</span>
                     <div className="arrow"></div>
                 </div>
-                <div id='inner_btns_container' className={styles.inner_btns_container}>
+                <div id='inner_btns_container' className={styles.inner_container}>
                     <button className="inner_btn" onClick={props.downloadFile}>
                         MARKDOWN
                     </button>

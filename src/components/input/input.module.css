@@ -1,19 +1,20 @@
-@value textBoxSize, textBoxBorderRadius from '../../common/sizes.css';
+@value boxSize, boxBorderRadius, tabletSize, boxBorder, boxHeight, boxMaxWidth, boxMinWidth, boxMargin, scrollBorderRadius, scrollBarSize from '../../common/sizes.css';
+@value scrollThumbColor, scrollThumbHoverColor, scrollTrackColor from '../../common/colors.css';
 
 .container {
   position: relative;
-  max-width: 600px;
-  min-width: 450px;
-  width: textBoxSize;
-  height: 500px;
+  max-width: boxMaxWidth;
+  min-width: boxMinWidth;
+  width: boxSize;
+  height: boxHeight;
 }
 
-.input_box {
+.box {
   padding: 10px;
   width: 100%;
   height: 100%;
-  border: 1px solid rgba(0, 0, 0, 0.4);
-  border-radius: textBoxBorderRadius;
+  border: boxBorder;
+  border-radius: boxBorderRadius;
   resize: none;
 }
 
@@ -42,29 +43,29 @@
 
 /* scroll bar */
 
-.input_box::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+.box::-webkit-scrollbar {
+  width: scrollBarSize;
+  height: scrollBarSize;
 }
 
-.input_box::-webkit-scrollbar-thumb {
+.box::-webkit-scrollbar-thumb {
   height: 17%;
-  background-color: #90a4ae;
-  border-radius: 10px;
+  background: scrollThumbColor;
+  border-radius: scrollBorderRadius;
 }
 
-.input_box::-webkit-scrollbar-thumb:hover {
-  background: #999;
+.box::-webkit-scrollbar-thumb:hover {
+  background: scrollThumbHoverColor;
 }
 
-.input_box::-webkit-scrollbar-track {
-  background: #cfd8dc;
-  border-radius: 10px;
+.box::-webkit-scrollbar-track {
+  background: scrollTrackColor;
+  border-radius: scrollBorderRadius;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: tabletSize) {
   .container {
-    margin: 0 auto 50px auto;
+    margin: boxMargin;
     width: 100%;
   }
 }

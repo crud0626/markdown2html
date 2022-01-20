@@ -66,7 +66,7 @@ const Section = ({isSheet}) => {
 
     return (
         <>
-        <section className={styles.section_container}>
+        <section className={styles.container}>
             <Buttons 
                 copyText={copyText}
                 uploadTextFile={uploadTextFile}

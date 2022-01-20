@@ -32,6 +32,28 @@ code {
     monospace;
 }
 
+/* scroll bar */
+
+body::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+body::-webkit-scrollbar-thumb {
+  height: 17%;
+  background: #9ea5ae;
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: #5c646e;
+}
+
+body::-webkit-scrollbar-track {
+  background: #cfd8dc;
+  border-radius: 10px;
+}
+
 /* arrow toggle */
 
 .arrow {
@@ -74,73 +96,6 @@ code {
   transform: translateY(0%);
 }
 
-/* button */
-
-#dropdownBtn {
-  padding: 0;
-}
-
-/* dark toggle test */
-
-.dark-mode-button {
-  display: inline-block;
-  position: relative;
-  width: 45px;
-  height: 30px;
-  transform: translateY(10px);
-}
-
-.dark-mode-button input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.dark-mode-button .onoff-switch {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 12px;
-  background-color: #f6f8fa;
-  border-radius: 20px;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
-}
-
-.dark-mode-button .onoff-switch:before {
-  position: absolute;
-  content: "";
-  height: 22px;
-  width: 22px;
-  left: 4px;
-  top: -5px;
-  background-image: url("../public/images/sun.png");
-  background-size: 15px;
-  background-position: center;
-  background-color: #fff;
-  background-repeat: no-repeat;
-  -webkit-transition: 0.5s;
-  transition: 0.4s;
-  border-radius: 20px;
-}
-
-.dark-mode-button input:checked + .onoff-switch {
-  background-color: #007ff4;
-  box-shadow: inset 1px 1px 2px #222;
-}
-
-.dark-mode-button input:checked + .onoff-switch:before {
-  background-image: url("../public/images/moon.png");
-  background-color: white;
-  box-shadow: none;
-  -webkit-transform: translateX(16px);
-  -ms-transform: translateX(16px);
-  transform: translateX(16px);
-}
-
 /* dark mode */
 
 section.dark {
@@ -151,6 +106,10 @@ section.dark {
 section.dark #output,
 section.dark #inputbox {
   background: #1e1f21;
+  color: white;
+}
+
+section.dark #output blockquote {
   color: white;
 }
 
@@ -175,6 +134,11 @@ section.dark div.buttons_container > .button {
   fill: white;
 }
 
+section.dark div.buttons_container > .button:hover {
+  background: #a1c1ea;
+  color: black;
+}
+
 section.dark div.buttons_container div.arrow::after,
 section.dark div.buttons_container div.arrow::before {
   background: white;
@@ -185,17 +149,19 @@ section.dark .inner_btn {
   color: white;
 }
 
-/* ?? */
-
-/* .active i {
-  transform: rotate(0);
-  transform: translate(0, -6px);
+section.dark .inner_btn:hover {
+  background: #a1c1ea;
+  color: black;
 }
 
-.active i::before {
-  transform: rotate(-45deg);
+section.dark .sheet_quote {
+  color: white;
 }
 
-.active i::after {
-  transform: rotate(45deg);
-} */
+section.dark #eraser {
+  background: #1e1f21;
+}
+
+section.dark #eraser:hover {
+  fill: white;
+}

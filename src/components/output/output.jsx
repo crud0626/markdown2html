@@ -6,12 +6,12 @@ import remarkEmoji from 'remark-emoji';
 
 const Output = React.forwardRef(({text}, ref) => {
     return(
-        <div ref={ref} id='output' className={styles.output_box}>
+        <div ref={ref} id='output' className={styles.box}>
             <ReactMarkdown 
                 children={text} 
                 remarkPlugins={[remarkGfm, remarkEmoji]} 
                 linkTarget="_blank"
-              components={
+                components={
                    {a: ({ node, children, ...props}) => {
                        const linkProps = props;
                          if (props.target === '_blank') {

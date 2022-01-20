@@ -1,77 +1,78 @@
-.output_box {
+@value boxSize, boxBorderRadius, tabletSize, boxBorder, boxHeight, boxMaxWidth, boxMinWidth, boxMargin, scrollBarSize, scrollBorderRadius from '../../common/sizes.css';
+@value scrollThumbColor, scrollThumbHoverColor, scrollTrackColor, lineBlueColor, codeBlockBgColor, mainColor, linkColor, codeBgColor, codeBlockTextColor from '../../common/colors.css';
+
+.box {
   padding: 10px;
-  width: 45%;
-  min-width: 450px;
-  max-width: 600px;
-  height: 500px;
+  width: boxSize;
+  min-width: boxMinWidth;
+  max-width: boxMaxWidth;
+  height: boxHeight;
   overflow-y: auto;
-  border: 1px solid rgba(0, 0, 0, 0.4);
-  border-radius: 3px;
+  border: boxBorder;
+  border-radius: boxBorderRadius;
   background-color: white;
 }
 
-/* markdown css nested 적용예정. */
-
-.output_box > *:first-child {
+.box > *:first-child {
   margin-top: 0;
 }
 
-.output_box > *:last-child {
+.box > *:last-child {
   margin-bottom: 0;
 }
 
 /* heading border-bottom */
 
-.output_box h1,
-.output_box h2,
-.output_box h3,
-.output_box h4,
-.output_box h5,
-.output_box h6 {
+.box h1,
+.box h2,
+.box h3,
+.box h4,
+.box h5,
+.box h6 {
   margin: 24px 0 16px 0;
 }
 
-.output_box h1,
-.output_box h2 {
+.box h1,
+.box h2 {
   padding-bottom: 0.3em;
   border-bottom: 1px solid #d8dee4;
 }
 
-.output_box blockquote {
+.box blockquote {
   margin: 0;
   padding: 0 1em;
-  color: #57606a;
-  border-left: 0.25em solid #d0d7de;
+  color: codeBlockTextColor;
+  border-left: 0.25em solid lineBlueColor;
 }
 
-.output_box code {
+.box code {
   padding: 0.2em 0.4em;
   margin: 0;
   font-size: 85%;
-  background-color: rgba(175, 184, 193, 0.2);
+  background-color: codeBgColor;
   border-radius: 6px;
 }
 
-.output_box a {
-  color: #0969da;
+.box a {
+  color: linkColor;
   text-decoration: none;
 }
 
-.output_box ul,
-.output_box ol {
+.box ul,
+.box ol {
   padding-left: 32px;
 }
 
-.output_box pre {
+.box pre {
   padding: 16px;
   overflow: auto;
   font-size: 85%;
   line-height: 1.45;
-  background-color: #f6f8fa;
+  background-color: mainColor;
   border-radius: 6px;
 }
 
-.output_box pre code {
+.box pre code {
   margin: 0;
   padding: 0;
   border: 0;
@@ -80,63 +81,63 @@
   overflow: visible;
 }
 
-.output_box sup {
+.box sup {
   font-size: 75%;
   top: -0.5em;
   position: absolute;
 }
 
-.output_box sup::before {
+.box sup::before {
   content: "[";
 }
 
-.output_box sup::after {
+.box sup::after {
   content: "]";
 }
 
-.output_box a[class="footnote-ref"] {
+.box a[class="footnote-ref"] {
   position: relative;
 }
 
 /* table */
-.output_box table {
+.box table {
   width: max-content;
   max-width: 100%;
   overflow: auto;
   border-collapse: collapse;
 }
 
-.output_box table tr {
+.box table tr {
   background-color: #ffffff;
   border-top: 1px solid #d8dee4;
 }
 
-.output_box table tr:nth-child(even) {
-  background-color: #f6f8fa;
+.box table tr:nth-child(even) {
+  background-color: codeBlockBgColor;
 }
 
-.output_box table td {
+.box table td {
   padding: 6px 13px;
-  border: 1px solid #d0d7de;
+  border: 1px solid lineBlueColor;
 }
 
-.output_box table th {
-  border: 1px solid #d0d7de;
+.box table th {
+  border: 1px solid lineBlueColor;
   padding: 6px 13px;
   font-weight: 600;
 }
 
-.output_box hr {
+.box hr {
   height: 0.25em;
   padding: 0;
   margin: 24px 0;
-  background-color: #d0d7de;
+  background-color: lineBlueColor;
   border: 0;
 }
 
 /* task list */
 
-.output_box ul[class="contains-task-list"] {
+.box ul[class="contains-task-list"] {
   list-style: none;
   padding-left: 0;
 }
@@ -163,29 +164,29 @@ section[class="footnotes"] ol > li {
 
 /* scroll bar */
 
-.output_box::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+.box::-webkit-scrollbar {
+  width: scrollBarSize;
+  height: scrollBarSize;
 }
 
-.output_box::-webkit-scrollbar-thumb {
+.box::-webkit-scrollbar-thumb {
   height: 17%;
-  background-color: #90a4ae;
-  border-radius: 10px;
+  background: scrollThumbColor;
+  border-radius: scrollBorderRadius;
 }
 
-.output_box::-webkit-scrollbar-thumb:hover {
-  background: #999;
+.box::-webkit-scrollbar-thumb:hover {
+  background: scrollThumbHoverColor;
 }
 
-.output_box::-webkit-scrollbar-track {
-  background: #cfd8dc;
-  border-radius: 10px;
+.box::-webkit-scrollbar-track {
+  background: scrollTrackColor;
+  border-radius: scrollBorderRadius;
 }
 
-@media screen and (max-width: 1024px) {
-  .output_box {
-    margin: 0 auto 50px auto;
+@media screen and (max-width: tabletSize) {
+  .box {
+    margin: boxMargin;
     width: 100%;
   }
 }

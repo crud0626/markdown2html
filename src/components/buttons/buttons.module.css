@@ -1,4 +1,5 @@
-@value btnBorderRadius from '../../common/sizes.css';
+@value btnBorderRadius, tabletSize from '../../common/sizes.css';
+@value btnHoverColor from '../../common/colors.css';
 
 .container {
   display: flex;
@@ -8,13 +9,17 @@
   min-width: 450px;
 }
 
+form > input[type="file"] {
+  display: none;
+}
+
 .button {
   display: flex;
   align-items: center;
   position: relative;
   width: fit-content;
   padding: 5px 10px;
-  border: 1px solid #a1c1ea;
+  border: 1px solid btnHoverColor;
   border-radius: btnBorderRadius;
   background: white;
   font-size: 1rem;
@@ -23,7 +28,7 @@
 }
 
 .button:hover {
-  background: #a1c1ea;
+  background: btnHoverColor;
 }
 
 .button img {
@@ -38,17 +43,15 @@
   margin-left: 5px;
 }
 
-.inner_btns_container {
-  top: 100%;
-  left: 0;
-  position: absolute;
-  transform: translateY(-50%);
-  transition: all 0.5s;
-  visibility: hidden;
-  opacity: 0;
+.dropdown_container {
+  padding: 0;
 }
 
-.button_bar {
+.dropdown_container:hover {
+  background: white;
+}
+
+.dropdown_btn {
   display: flex;
   align-items: baseline;
   width: 100%;
@@ -58,26 +61,32 @@
   z-index: 1;
 }
 
-.inner_btns_container > button {
+.inner_container {
+  top: 100%;
+  left: 0;
+  position: absolute;
+  transform: translateY(-50%);
+  transition: all 0.5s;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.inner_container > button {
   font-family: none;
   width: 100%;
   padding: 5px 10px;
-  border: 1px solid #a1c1ea;
+  border: 1px solid btnHoverColor;
   border-radius: 5px;
   background: white;
   font-size: 1rem;
   cursor: pointer;
 }
 
-.button:active {
-  background: #a1c1ea;
+.inner_container > button:hover {
+  background: btnHoverColor;
 }
 
-form > input[type="file"] {
-  display: none;
-}
-
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: tabletSize) {
   .container {
     margin-top: 50px;
     width: 90%;

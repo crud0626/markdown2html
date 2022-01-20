@@ -3,7 +3,7 @@ import styles from './footer.module.css';
 
 const Footer = (props) => (
         <footer>
-            <div className={styles.footer_container}>
+            <div className={styles.container}>
                 <div className={styles.text}>
                     <span>Copyright 2022.</span>
                     <span>CRUD0626 All rights reserved.</span>

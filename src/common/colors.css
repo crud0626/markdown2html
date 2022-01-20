@@ -1,0 +1,17 @@
+@value mainColor: #f6f8fa;
+@value mainDarkColor: #24292f;
+@value linkColor: #0969da;
+
+@value cheatsheetColor: beige;
+
+@value codeBgColor: rgba(175, 184, 193, 0.2);
+@value codeBlockTextColor: #57606a;
+@value codeBlockBgColor: #f6f8fa;
+@value lineBlueColor: #d0d7de;
+
+@value btnHoverColor: #a1c1ea;
+@value darkBtnColor: #007ff4;
+
+@value scrollThumbColor: #9ea5ae;
+@value scrollThumbHoverColor: #5c646e;
+@value scrollTrackColor: #cfd8dc;

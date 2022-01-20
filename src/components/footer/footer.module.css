@@ -1,15 +1,16 @@
 @value sectionWidth, footerHeight from '../../common/sizes.css';
+@value mainDarkColor, codeBlockBgColor from '../../common/colors.css';
 
 footer {
   flex-shrink: 0;
   display: flex;
   height: footerHeight;
-  border-top: 1px solid #f6f8fa;
-  background-color: #24292f;
+  border-top: 1px solid codeBlockBgColor;
+  background-color: mainDarkColor;
   color: white;
 }
 
-.footer_container {
+.container {
   margin: auto;
   display: flex;
   justify-content: space-between;

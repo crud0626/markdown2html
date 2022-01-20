@@ -14,9 +14,9 @@ const Header = ({changeSheet, onChangeDark}) => (
                     <h1>MD TO HTML</h1>
                 </div>
                 <div className={styles.right}>
-                    <label className="dark-mode-button">
+                    <label className={styles.darkmode_btn}>
                         <input type="checkbox" onClick={onChangeDark}/>
-                        <span className="onoff-switch"></span> 
+                        <span className={styles.onoff_switch}></span> 
                     </label>
                 </div>
             </div>

@@ -1,21 +1,37 @@
-@value sectionWidth, headerHeight, btnImageSize, btnBorderRadius from '../../common/sizes.css';
+@value sectionWidth, headerHeight, btnImageSize, btnBorderRadius, darkmodeBarMove from '../../common/sizes.css';
+@value mainColor, mainDarkColor, codeBlockBgColor, cheatsheetColor, codeBlockBgColor, darkBtnColor from '../../common/colors.css';
 
 header {
   flex-shrink: 0;
   height: headerHeight;
-  border-bottom: 1px solid #f6f8fa;
+  border-bottom: 1px solid mainColor;
   color: white;
-  background-color: #24292f;
+  background-color: mainDarkColor;
 }
 
 .container {
   margin: auto;
   display: flex;
-  /* 변경예정 */
   justify-content: space-between;
   align-items: center;
   width: sectionWidth;
   height: 100%;
+}
+
+.left > .cheatsheet_btn {
+  padding: 10px 15px;
+  background: transparent;
+  border: 1px solid white;
+  border-radius: btnBorderRadius;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.left > .cheatsheet_btn:hover {
+  color: black;
+  border-color: black;
+  background: cheatsheetColor;
 }
 
 .center {
@@ -34,18 +50,55 @@ header {
   font-weight: normal;
 }
 
-.left > .cheatsheet_btn {
-  padding: 10px 15px;
-  background: transparent;
-  border: 1px solid white;
-  border-radius: btnBorderRadius;
-  color: white;
-  font-size: 1rem;
-  cursor: pointer;
+.darkmode_btn {
+  display: inline-block;
+  position: relative;
+  width: 45px;
+  height: 30px;
+  transform: translateY(10px);
 }
 
-.left > .cheatsheet_btn:hover {
-  color: black;
-  border-color: black;
-  background: #d9d5c5;
+.darkmode_btn input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.darkmode_btn .onoff_switch {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 12px;
+  background-color: codeBlockBgColor;
+  border-radius: 20px;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.darkmode_btn .onoff_switch:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 4px;
+  top: -5px;
+  background: #fff center/15px no-repeat url("../../../public/images/sun.png");
+  -webkit-transition: 0.5s;
+  transition: 0.4s;
+  border-radius: 20px;
+}
+
+.darkmode_btn input:checked + .onoff_switch {
+  background: darkBtnColor;
+  box-shadow: inset 1px 1px 2px #222;
+}
+
+.darkmode_btn input:checked + .onoff_switch:before {
+  background-image: url("../../../public/images/moon.png");
+  -webkit-transform: darkmodeBarMove;
+  -ms-transform: darkmodeBarMove;
+  transform: darkmodeBarMove;
 }

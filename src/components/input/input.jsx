@@ -10,7 +10,7 @@ const Input = (props) => {
         <div className={styles.container}>
         <textarea 
             id="inputbox"
-            className={styles.input_box} 
+            className={styles.box} 
             onChange={props.changeFormValue} 
             onDragEnter={preventEvent}
             onDragOver={preventEvent}
@@ -18,7 +18,7 @@ const Input = (props) => {
             value={props.text}
             spellCheck="false"
         />
-        <button className={styles.eraser_btn} onClick={props.onClickEraser}>
+        <button id='eraser' className={styles.eraser_btn} onClick={props.onClickEraser}>
         <svg viewBox="0 0 96.000000 96.000000">
             <g transform="translate(0.000000,96.000000) scale(0.100000,-0.100000)">
             <path d="M56 884 c-9 -8 -16 -19 -16 -24 0 -9 247 -258 339 -343 22 -21 41

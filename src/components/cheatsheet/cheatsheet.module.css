@@ -1,23 +1,25 @@
-@value sectionWidth, mobileSize from '../../common/sizes.css';
+@value sectionWidth, tabletSize from '../../common/sizes.css';
+@value mainColor, cheatsheetColor, btnHoverColor, codeBlockBgColor, lineBlueColor, scrollThumbColor, scrollThumbHoverColor, scrollTrackColor from '../../common/colors.css';
+
 
 .header > h2 {
   text-align: center;
 }
 
-.cheatsheet_container {
+.container {
   margin: auto;
   padding: 0 20px 20px 20px;
   position: absolute;
   width: sectionWidth;
   height: 100%;
   flex: 1 1;
-  border-left: 1px solid #f6f8fa;
-  background-color: beige;
+  border-left: 1px solid mainColor;
+  background-color: cheatsheetColor;
   z-index: 1;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
-.sheet_body {
+.body {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -40,7 +42,6 @@
 
 .sheet_container table {
   width: 100%;
-  /* max-width: 100%; */
   overflow: auto;
   border-collapse: collapse;
 }
@@ -51,16 +52,16 @@
 }
 
 .sheet_container table tbody tr:nth-child(odd) {
-  background-color: #f6f8fa;
+  background-color: codeBlockBgColor;
 }
 
 .sheet_container table td {
   padding: 10px 15px;
-  border: 1px solid #d0d7de;
+  border: 1px solid lineBlueColor;
 }
 
 .sheet_container table th {
-  border: 1px solid #d0d7de;
+  border: 1px solid lineBlueColor;
   padding: 6px 13px;
   font-weight: 600;
 }
@@ -69,7 +70,7 @@
   height: 0.25em;
   padding: 0;
   margin: 24px 0;
-  background-color: #d0d7de;
+  background-color: lineBlueColor;
   border: 0;
 }
 
@@ -86,7 +87,7 @@
   margin: 0;
   padding: 0 1em;
   color: #57606a;
-  border-left: 0.25em solid #d0d7de;
+  border-left: 0.25em solid lineBlueColor;
 }
 
 .sheet table code {
@@ -102,7 +103,7 @@
   overflow: auto;
   font-size: 85%;
   line-height: 1.45;
-  background-color: #f6f8fa;
+  background-color: codeBlockBgColor;
   border-radius: 6px;
 }
 
@@ -121,7 +122,29 @@
   list-style: none;
 }
 
-@media screen and (max-width: mobileSize) {
+/* scroll bar */
+
+.container::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.container::-webkit-scrollbar-thumb {
+  height: 17%;
+  background: scrollThumbColor;
+  border-radius: 10px;
+}
+
+.container::-webkit-scrollbar-thumb:hover {
+  background: scrollThumbHoverColor;
+}
+
+.container::-webkit-scrollbar-track {
+  background: scrollTrackColor;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: tabletSize) {
   .sheet_container {
     width: 90%;
   }

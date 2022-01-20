@@ -2,11 +2,11 @@ import React from 'react';
 import styles from './cheatsheet.module.css';
 
 const Cheatsheet = (props) => (
-        <div className={`${styles.cheatsheet_container} cheatsheet_container`}>
+        <div className={`${styles.container} cheatsheet_container`}>
             <div className={styles.header}>
                 <h2>Markdown Cheatsheet</h2>
             </div>
-            <div className={styles.sheet_body}>
+            <div className={styles.body}>
                 <div className={styles.sheet_container}>
                     <div className={styles.sheet}>
                         <p>Basic Syntax</p>
@@ -76,7 +76,7 @@ const Cheatsheet = (props) => (
                             <tbody>
                                 <tr>
                                     <td>> text</td>
-                                    <td><blockquote>text</blockquote></td>
+                                    <td><blockquote className='sheet_quote'>text</blockquote></td>
                                 </tr>
                             </tbody>
                         </table>
