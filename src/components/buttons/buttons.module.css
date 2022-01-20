@@ -1,12 +1,12 @@
-@value btnBorderRadius, tabletSize from '../../common/sizes.css';
+@value boxMinWidth, boxMaxWidth, btnBorderRadius, tabletSize from '../../common/sizes.css';
 @value btnHoverColor from '../../common/colors.css';
 
 .container {
   display: flex;
-  justify-content: space-evenly;
-  margin-bottom: 80px;
+  justify-content: space-between;
   width: 50%;
-  min-width: 450px;
+  min-width: boxMinWidth;
+  max-width: boxMaxWidth;
 }
 
 form > input[type="file"] {
@@ -88,7 +88,7 @@ form > input[type="file"] {
 
 @media screen and (max-width: tabletSize) {
   .container {
-    margin-top: 50px;
+    margin: 50px 0 80px 0;
     width: 90%;
   }
 }
