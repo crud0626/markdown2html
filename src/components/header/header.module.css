@@ -39,6 +39,11 @@ header {
   align-items: center;
 }
 
+a.center {
+  text-decoration: none;
+  color: white;
+}
+
 .center > img {
   margin-right: 10px;
   width: btnImageSize;

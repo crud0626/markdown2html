@@ -9,10 +9,10 @@ const Header = ({changeSheet, onChangeDark}) => (
                         CHEAT SHEET
                     </button>
                 </div>
-                <div className={styles.center}>
+                <a href='https://www.mdtohtml.com' className={styles.center}>
                     <img src="./images/mainlogo.png" alt="mainlogo" />
                     <h1>MD TO HTML</h1>
-                </div>
+                </a>
                 <div className={styles.right}>
                     <label className={styles.darkmode_btn}>
                         <input type="checkbox" onClick={onChangeDark}/>
