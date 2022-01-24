@@ -6,12 +6,25 @@ const Input = (props) => {
         event.preventDefault();
     }
 
+    const changeTab = (event) => {
+        if (event.keyCode === 9) {
+            event.preventDefault();
+            props.changeFormValue(event.target.value += "  ");
+            return;
+        }
+    }
+
+    const onInput = (event) => {
+        props.changeFormValue(event.target.value);
+    }
+
     return (
         <div className={styles.container}>
         <textarea 
             id="inputbox"
             className={styles.box} 
-            onChange={props.changeFormValue} 
+            onKeyDown={changeTab}
+            onChange={onInput}
             onDragEnter={preventEvent}
             onDragOver={preventEvent}
             onDrop={props.dragFile}

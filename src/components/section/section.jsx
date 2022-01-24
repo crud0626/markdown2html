@@ -10,8 +10,8 @@ const Section = ({isSheet}) => {
 
     const outputRef = useRef();
 
-    const changeFormValue = (event) => {
-        setText(event.target.value);
+    const changeFormValue = (value) => {
+        setText(value);
     }
 
     const onClickEraser = useCallback(() => {
