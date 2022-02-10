@@ -9,7 +9,13 @@ const Input = (props) => {
     const changeTab = (event) => {
         if (event.keyCode === 9) {
             event.preventDefault();
-            props.changeFormValue(event.target.value += "  ");
+            const inputBox = document.querySelector("#inputbox");
+            const start = inputBox.selectionStart;
+            const end = inputBox.selectionEnd;
+
+            inputBox.value = `${inputBox.value.substring(0, start)}\t${inputBox.value.substring(end)}`;
+            inputBox.selectionStart = start + 1;
+            inputBox.selectionEnd = start + 1;
             return;
         }
     }
