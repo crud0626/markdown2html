@@ -50,7 +50,7 @@ const Section = ({isSheet}) => {
     }
 
     const downloadFile = (event) => {
-        let link = document.createElement("a");
+        const link = document.createElement("a");
         let data = "";
         if (event.target.dataset.title) {
             data = outputRef.current.innerHTML;
@@ -65,28 +65,30 @@ const Section = ({isSheet}) => {
     }
 
     return (
-        <>
         <section className={styles.container}>
-            <Buttons 
+            {!isSheet && 
+            <>
+                <Buttons 
                 copyText={copyText}
                 uploadTextFile={uploadTextFile}
                 downloadFile={downloadFile}
-            />
-            <div className={styles.section}>
-                <Input 
-                    changeFormValue={changeFormValue}
-                    onClickEraser={onClickEraser}
-                    dragFile={uploadTextFile}
-                    text={text}
                 />
-                <Output 
-                    text={text} 
-                    ref={outputRef}
-                />
-            </div>
+                <div className={styles.section}>
+                    <Input 
+                        changeFormValue={changeFormValue}
+                        onClickEraser={onClickEraser}
+                        dragFile={uploadTextFile}
+                        text={text}
+                    />
+                    <Output 
+                        text={text} 
+                        ref={outputRef}
+                    />
+                </div>
+            </>
+            }
             {isSheet && <Cheatsheet />}
         </section>
-        </>
     );
 }
 
