@@ -34,9 +34,23 @@ const Section = ({isSheet}) => {
         }
     }
 
+    const checkFileType = (event) => {
+        event.preventDefault();
+
+        const file = event.dataTransfer.files[0];
+        const ext = file.name.slice(-3).toLowerCase();
+
+        if(file.type === "text/plain" || ext === ".md") {
+            uploadTextFile(event);
+        } else {
+            alert("You can only upload txt or md files");
+        }
+    }
+
     const uploadTextFile = (event) => {
         event.preventDefault();
         let uploadedFile = "";
+
         if (event.type === "drop") {
             uploadedFile = event.dataTransfer.files[0];
         } else {
@@ -77,7 +91,7 @@ const Section = ({isSheet}) => {
                     <Input 
                         changeFormValue={changeFormValue}
                         onClickEraser={onClickEraser}
-                        dragFile={uploadTextFile}
+                        dragFile={checkFileType}
                         text={text}
                     />
                     <Output 
