@@ -5,7 +5,7 @@ const Header = ({changeSheet, onChangeDark}) => (
         <header>
             <div className={styles.container}>
                 <div className={styles.left}>
-                    <button className={styles.cheatsheet_btn} onClick={changeSheet}>
+                    <button className={styles.cheatsheet_btn} onClick={changeSheet} aria-label="cheatsheet page button">
                         CHEAT SHEET
                     </button>
                 </div>
@@ -15,7 +15,7 @@ const Header = ({changeSheet, onChangeDark}) => (
                 </a>
                 <div className={styles.right}>
                     <label className={styles.darkmode_btn}>
-                        <input type="checkbox" onClick={onChangeDark}/>
+                        <input type="checkbox" onClick={onChangeDark} aria-label="darkmode button"/>
                         <span className={styles.onoff_switch}></span> 
                     </label>
                 </div>

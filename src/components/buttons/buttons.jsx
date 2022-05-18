@@ -11,7 +11,7 @@ const Buttons = (props) => {
 
     return(
         <div className={`${styles.container} buttons_container`}>
-            <label htmlFor='upload' className={`${styles.button} button`}>
+            <label htmlFor='upload' className={`${styles.button} button`} aria-label="add file button">
                 <form action="#">
                     <input type="file" id='upload' accept='.txt,.md' onChange={props.uploadTextFile}/>
                 </form>
@@ -32,15 +32,15 @@ const Buttons = (props) => {
                     <div className="arrow"></div>
                 </div>
                 <div id='inner_btns_container' className={styles.inner_container}>
-                    <button className="inner_btn" onClick={props.downloadFile}>
+                    <button className="inner_btn" onClick={props.downloadFile} aria-label="markdown download button">
                         MARKDOWN
                     </button>
-                    <button className="inner_btn" data-title="html" onClick={props.downloadFile}>
+                    <button className="inner_btn" data-title="html" onClick={props.downloadFile} aria-label="html download button">
                         HTML
                     </button>
                 </div>
             </div>
-            <button className={`${styles.button} button`} onClick={props.copyText}>
+            <button className={`${styles.button} button`} onClick={props.copyText} aria-label="copy button">
                 <span id='copyTooltip'>Copy</span>
                 <svg viewBox="0 0 96.000000 96.000000">
                     <g transform="translate(0.000000,96.000000) scale(0.100000,-0.100000)">

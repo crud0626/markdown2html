@@ -36,8 +36,9 @@ const Input = (props) => {
             onDrop={props.dragFile}
             value={props.text}
             spellCheck="false"
+            aria-label="input box"
         />
-        <button id='eraser' className={styles.eraser_btn} onClick={props.onClickEraser}>
+        <button id='eraser' className={styles.eraser_btn} onClick={props.onClickEraser} aria-label="erase input button">
         <svg viewBox="0 0 96.000000 96.000000">
             <g transform="translate(0.000000,96.000000) scale(0.100000,-0.100000)">
             <path d="M56 884 c-9 -8 -16 -19 -16 -24 0 -9 247 -258 339 -343 22 -21 41
