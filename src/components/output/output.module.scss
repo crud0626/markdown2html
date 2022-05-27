@@ -1,15 +1,15 @@
-@value boxSize, boxBorderRadius, tabletSize, boxBorder, boxHeight, boxMaxWidth, boxMinWidth, boxMargin, scrollBarSize, scrollBorderRadius from '../../common/sizes.css';
-@value scrollThumbColor, scrollThumbHoverColor, scrollTrackColor, lineBlueColor, codeBlockBgColor, mainColor, linkColor, codeBgColor, codeBlockTextColor from '../../common/colors.css';
+@use "./../../common/colors";
+@use "./../../common/sizes";
 
 .box {
   padding: 10px;
-  width: boxSize;
-  min-width: boxMinWidth;
-  max-width: boxMaxWidth;
-  height: boxHeight;
+  width: sizes.$boxSize;
+  min-width: sizes.$boxMinWidth;
+  max-width: sizes.$boxMaxWidth;
+  height: sizes.$boxHeight;
   overflow-y: auto;
-  border: boxBorder;
-  border-radius: boxBorderRadius;
+  border: sizes.$boxBorder;
+  border-radius: sizes.$boxBorderRadius;
   background-color: white;
 }
 
@@ -41,20 +41,20 @@
 .box blockquote {
   margin: 0;
   padding: 0 1em;
-  color: codeBlockTextColor;
-  border-left: 0.25em solid lineBlueColor;
+  color: colors.$codeBlockTextColor;
+  border-left: 0.25em solid colors.$lineBlueColor;
 }
 
 .box code {
   padding: 0.2em 0.4em;
   margin: 0;
   font-size: 85%;
-  background-color: codeBgColor;
+  background-color: colors.$codeBgColor;
   border-radius: 6px;
 }
 
 .box a {
-  color: linkColor;
+  color: colors.$linkColor;
   text-decoration: none;
 }
 
@@ -68,7 +68,7 @@
   overflow: auto;
   font-size: 85%;
   line-height: 1.45;
-  background-color: mainColor;
+  background-color: colors.$mainColor;
   border-radius: 6px;
 }
 
@@ -113,16 +113,16 @@
 }
 
 .box table tr:nth-child(even) {
-  background-color: codeBlockBgColor;
+  background-color: colors.$codeBlockBgColor;
 }
 
 .box table td {
   padding: 6px 13px;
-  border: 1px solid lineBlueColor;
+  border: 1px solid colors.$lineBlueColor;
 }
 
 .box table th {
-  border: 1px solid lineBlueColor;
+  border: 1px solid colors.$lineBlueColor;
   padding: 6px 13px;
   font-weight: 600;
 }
@@ -131,7 +131,7 @@
   height: 0.25em;
   padding: 0;
   margin: 24px 0;
-  background-color: lineBlueColor;
+  background-color: colors.$lineBlueColor;
   border: 0;
 }
 
@@ -165,28 +165,28 @@ section[class="footnotes"] ol > li {
 /* scroll bar */
 
 .box::-webkit-scrollbar {
-  width: scrollBarSize;
-  height: scrollBarSize;
+  width: sizes.$scrollBarSize;
+  height: sizes.$scrollBarSize;
 }
 
 .box::-webkit-scrollbar-thumb {
   height: 17%;
-  background: scrollThumbColor;
-  border-radius: scrollBorderRadius;
+  background: colors.$scrollThumbColor;
+  border-radius: sizes.$scrollBorderRadius;
 }
 
 .box::-webkit-scrollbar-thumb:hover {
-  background: scrollThumbHoverColor;
+  background: colors.$scrollThumbHoverColor;
 }
 
 .box::-webkit-scrollbar-track {
-  background: scrollTrackColor;
-  border-radius: scrollBorderRadius;
+  background: colors.$scrollTrackColor;
+  border-radius: sizes.$scrollBorderRadius;
 }
 
-@media screen and (max-width: tabletSize) {
+@media screen and (max-width: sizes.$tabletSize) {
   .box {
-    margin: boxMargin;
+    margin: sizes.$boxMargin;
     width: 100%;
   }
 }

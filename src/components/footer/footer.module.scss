@@ -1,12 +1,12 @@
-@value sectionWidth, footerHeight from '../../common/sizes.css';
-@value mainDarkColor, codeBlockBgColor from '../../common/colors.css';
+@use "./../../common/colors";
+@use "./../../common/sizes";
 
 footer {
   flex-shrink: 0;
   display: flex;
-  height: footerHeight;
-  border-top: 1px solid codeBlockBgColor;
-  background-color: mainDarkColor;
+  height: sizes.$footerHeight;
+  border-top: 1px solid colors.$codeBlockBgColor;
+  background-color: colors.$mainDarkColor;
   color: white;
 }
 
@@ -15,7 +15,7 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: sectionWidth;
+  width: sizes.$sectionWidth;
   height: 100%;
 }
 

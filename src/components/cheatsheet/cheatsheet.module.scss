@@ -1,6 +1,5 @@
-@value sectionWidth, tabletSize from '../../common/sizes.css';
-@value mainColor, cheatsheetColor, btnHoverColor, codeBlockBgColor, lineBlueColor, scrollThumbColor, scrollThumbHoverColor, scrollTrackColor from '../../common/colors.css';
-
+@use "./../../common/colors";
+@use "./../../common/sizes";
 
 .header > h2 {
   text-align: center;
@@ -13,8 +12,8 @@
   width: sectionWidth;
   height: 100%;
   flex: 1 1;
-  border-left: 1px solid mainColor;
-  background-color: cheatsheetColor;
+  border-left: 1px solid colors.$mainColor;
+  background-color: colors.$cheatsheetColor;
   z-index: 1;
   overflow-y: auto;
 }
@@ -52,16 +51,16 @@
 }
 
 .sheet_container table tbody tr:nth-child(odd) {
-  background-color: codeBlockBgColor;
+  background-color: colors.$codeBlockBgColor;
 }
 
 .sheet_container table td {
   padding: 10px 15px;
-  border: 1px solid lineBlueColor;
+  border: 1px solid colors.$lineBlueColor;
 }
 
 .sheet_container table th {
-  border: 1px solid lineBlueColor;
+  border: 1px solid colors.$lineBlueColor;
   padding: 6px 13px;
   font-weight: 600;
 }
@@ -70,7 +69,7 @@
   height: 0.25em;
   padding: 0;
   margin: 24px 0;
-  background-color: lineBlueColor;
+  background-color: colors.$lineBlueColor;
   border: 0;
 }
 
@@ -87,7 +86,7 @@
   margin: 0;
   padding: 0 1em;
   color: #57606a;
-  border-left: 0.25em solid lineBlueColor;
+  border-left: 0.25em solid colors.$lineBlueColor;
 }
 
 .sheet table code {
@@ -103,7 +102,7 @@
   overflow: auto;
   font-size: 85%;
   line-height: 1.45;
-  background-color: codeBlockBgColor;
+  background-color: colors.$codeBlockBgColor;
   border-radius: 6px;
 }
 
@@ -131,20 +130,20 @@
 
 .container::-webkit-scrollbar-thumb {
   height: 17%;
-  background: scrollThumbColor;
+  background: colors.$scrollThumbColor;
   border-radius: 10px;
 }
 
 .container::-webkit-scrollbar-thumb:hover {
-  background: scrollThumbHoverColor;
+  background: colors.$scrollThumbHoverColor;
 }
 
 .container::-webkit-scrollbar-track {
-  background: scrollTrackColor;
+  background: colors.$scrollTrackColor;
   border-radius: 10px;
 }
 
-@media screen and (max-width: tabletSize) {
+@media screen and (max-width: sizes.$tabletSize) {
   .sheet_container {
     width: 90%;
   }

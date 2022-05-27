@@ -1,12 +1,12 @@
-@value boxMinWidth, boxMaxWidth, btnBorderRadius, tabletSize from '../../common/sizes.css';
-@value btnHoverColor from '../../common/colors.css';
+@use "./../../common/colors";
+@use "./../../common/sizes";
 
 .container {
   display: flex;
   justify-content: space-between;
   width: 50%;
-  min-width: boxMinWidth;
-  max-width: boxMaxWidth;
+  min-width: sizes.$boxMinWidth;
+  max-width: sizes.$boxMaxWidth;
 }
 
 form > input[type="file"] {
@@ -19,8 +19,8 @@ form > input[type="file"] {
   position: relative;
   width: fit-content;
   padding: 5px 10px;
-  border: 1px solid btnHoverColor;
-  border-radius: btnBorderRadius;
+  border: 1px solid colors.$btnHoverColor;
+  border-radius: sizes.$btnBorderRadius;
   background: white;
   font-size: 1rem;
   cursor: pointer;
@@ -28,7 +28,7 @@ form > input[type="file"] {
 }
 
 .button:hover {
-  background: btnHoverColor;
+  background: colors.$btnHoverColor;
 }
 
 .button img {
@@ -76,7 +76,7 @@ form > input[type="file"] {
   font-family: none;
   width: 100%;
   padding: 5px 10px;
-  border: 1px solid btnHoverColor;
+  border: 1px solid colors.$btnHoverColor;
   border-radius: 5px;
   background: white;
   font-size: 1rem;
@@ -84,10 +84,10 @@ form > input[type="file"] {
 }
 
 .inner_container > button:hover {
-  background: btnHoverColor;
+  background: colors.$btnHoverColor;
 }
 
-@media screen and (max-width: tabletSize) {
+@media screen and (max-width: sizes.$tabletSize) {
   .container {
     margin: 50px 0 80px 0;
     width: 90%;

@@ -1,5 +1,5 @@
-@value sectionWidth from '../../common/sizes.css';
-@value mainColor from '../../common/colors.css';
+@use "./../../common/colors";
+@use "./../../common/sizes";
 
 .container {
   flex: 1;
@@ -8,17 +8,17 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  background-color: mainColor;
+  background-color: colors.$mainColor;
 }
 
 .section {
   display: flex;
   justify-content: space-evenly;
-  width: sectionWidth;
+  width: sizes.$sectionWidth;
   height: 70%;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: sizes.$tabletSize) {
   .section {
     display: block;
   }
