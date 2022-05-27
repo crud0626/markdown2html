@@ -1,5 +1,6 @@
 @use "./../../common/colors";
 @use "./../../common/sizes";
+@use "./../../common/mixins";
 
 .container {
   display: flex;
@@ -87,7 +88,7 @@ form > input[type="file"] {
   background: colors.$btnHoverColor;
 }
 
-@media screen and (max-width: sizes.$tabletSize) {
+@include mixins.tablet {
   .container {
     margin: 50px 0 80px 0;
     width: 90%;

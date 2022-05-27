@@ -1,5 +1,6 @@
 @use "./../../common/colors";
 @use "./../../common/sizes";
+@use "./../../common/mixins";
 
 .box {
   padding: 10px;
@@ -184,7 +185,7 @@ section[class="footnotes"] ol > li {
   border-radius: sizes.$scrollBorderRadius;
 }
 
-@media screen and (max-width: sizes.$tabletSize) {
+@include mixins.tablet {
   .box {
     margin: sizes.$boxMargin;
     width: 100%;

@@ -1,0 +1,7 @@
+@use 'sizes';
+
+@mixin tablet {
+    @media screen and (max-width: sizes.$tabletSize) {
+        @content;
+    }
+}

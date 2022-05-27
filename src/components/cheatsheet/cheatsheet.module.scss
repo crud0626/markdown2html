@@ -1,5 +1,6 @@
 @use "./../../common/colors";
 @use "./../../common/sizes";
+@use "./../../common/mixins";
 
 .header > h2 {
   text-align: center;
@@ -143,7 +144,7 @@
   border-radius: 10px;
 }
 
-@media screen and (max-width: sizes.$tabletSize) {
+@include mixins.tablet {
   .sheet_container {
     width: 90%;
   }

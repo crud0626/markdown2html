@@ -1,5 +1,6 @@
 @use "./../../common/colors";
 @use "./../../common/sizes";
+@use "./../../common/mixins";
 
 .container {
   position: relative;
@@ -63,7 +64,7 @@
   border-radius: sizes.$scrollBorderRadius;
 }
 
-@media screen and (max-width: sizes.$tabletSize) {
+@include mixins.tablet {
   .container {
     margin: sizes.$boxMargin;
     width: 100%;
