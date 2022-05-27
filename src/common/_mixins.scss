@@ -1,7 +1,152 @@
 @use 'sizes';
+@use 'colors';
 
 @mixin tablet {
     @media screen and (max-width: sizes.$tabletSize) {
         @content;
     }
+}
+
+// markdown
+@mixin markdown {
+    h1, h2, h3, h4, h5, h6 {
+    margin: 24px 0 16px 0;
+    }
+
+    h1, h2 {
+        padding-bottom: 0.3em;
+        border-bottom: 1px solid #d8dee4;
+    }
+
+    blockquote {
+        margin: 0;
+        padding: 0 1em;
+        color: colors.$codeBlockTextColor;
+        border-left: 0.25em solid colors.$lineBlueColor;
+    }
+
+    code {
+        padding: 0.2em 0.4em;
+        margin: 0;
+        font-size: 85%;
+        background-color: colors.$codeBgColor;
+        border-radius: 6px;
+    }
+
+    a {
+        color: colors.$linkColor;
+        text-decoration: none;
+        
+        &.footnote-ref {
+            position: relative;
+        }
+    }
+
+    // .footnote-ref {
+    //     position: relative;
+    // }
+
+    ul,
+    ol {
+        padding-left: 32px;
+    }
+
+    ul[class="contains-task-list"] {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    pre {
+        padding: 16px;
+        overflow: auto;
+        font-size: 85%;
+        line-height: 1.45;
+        background-color: colors.$mainColor;
+        border-radius: 6px;
+
+        & code {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            background: transparent;
+            font-size: 100%;
+            overflow: visible;
+        }
+    }
+
+    sup {
+        font-size: 75%;
+        top: -0.5em;
+        position: absolute;
+
+        & ::before {
+            content: "[";
+        }
+        
+        & ::after {
+            content: "]";
+        }
+    }
+          
+    hr {
+        height: 0.25em;
+        padding: 0;
+        margin: 24px 0;
+        background-color: colors.$lineBlueColor;
+        border: 0;
+    }
+
+    // Table
+    table {
+        width: max-content;
+        max-width: 100%;
+        overflow: auto;
+        border-collapse: collapse;
+
+        & thead tr {
+            background-color: #ffffff;
+            border-top: 1px solid #d8dee4;
+        }
+
+        & tbody tr {
+            background-color: #ffffff;
+            border-top: 1px solid #d8dee4;
+
+            & :nth-child(odd) {
+                background-color: colors.$codeBlockBgColor;
+            }
+        }
+
+        & td {
+            padding: 6px 13px;
+            border: 1px solid colors.$lineBlueColor;
+        }
+
+        & th {
+            border: 1px solid colors.$lineBlueColor;
+            padding: 6px 13px;
+            font-weight: 600;
+        }
+    }
+}
+
+// Scroll bar, 안먹힘. 수정해야됨.
+@mixin scrollbar {
+    width: sizes.$scrollBarSize;
+    height: sizes.$scrollBarSize;
+}
+
+@mixin scrollbar-thumb {
+    height: 17%;
+    background: colors.$scrollThumbColor;
+    border-radius: sizes.$scrollBorderRadius;
+}
+
+@mixin scrollbar-thumb-hover {
+    background: colors.$scrollThumbHoverColor;
+}
+
+@mixin scrollbar-track {
+    background: colors.$scrollTrackColor;
+    border-radius: sizes.$scrollBorderRadius;
 }

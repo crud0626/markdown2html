@@ -42,28 +42,26 @@
   height: 100%;
 }
 
-/* scroll bar */
+// Scroll bar
+.box {
+  &::-webkit-scrollbar {
+    @include mixins.scrollbar
+  }
 
-.box::-webkit-scrollbar {
-  width: sizes.$scrollBarSize;
-  height: sizes.$scrollBarSize;
+  &::-webkit-scrollbar-thumb {
+    @include mixins.scrollbar-thumb
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    @include mixins.scrollbar-thumb-hover
+  }
+
+  &::-webkit-scrollbar-track {
+    @include mixins.scrollbar-track
+  }
 }
 
-.box::-webkit-scrollbar-thumb {
-  height: 17%;
-  background: colors.$scrollThumbColor;
-  border-radius: sizes.$scrollBorderRadius;
-}
-
-.box::-webkit-scrollbar-thumb:hover {
-  background: colors.$scrollThumbHoverColor;
-}
-
-.box::-webkit-scrollbar-track {
-  background: colors.$scrollTrackColor;
-  border-radius: sizes.$scrollBorderRadius;
-}
-
+// Media Query
 @include mixins.tablet {
   .container {
     margin: sizes.$boxMargin;

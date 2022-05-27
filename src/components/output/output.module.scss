@@ -22,128 +22,10 @@
   margin-bottom: 0;
 }
 
-/* heading border-bottom */
-
-.box h1,
-.box h2,
-.box h3,
-.box h4,
-.box h5,
-.box h6 {
-  margin: 24px 0 16px 0;
+.box {
+  @include mixins.markdown;
 }
 
-.box h1,
-.box h2 {
-  padding-bottom: 0.3em;
-  border-bottom: 1px solid #d8dee4;
-}
-
-.box blockquote {
-  margin: 0;
-  padding: 0 1em;
-  color: colors.$codeBlockTextColor;
-  border-left: 0.25em solid colors.$lineBlueColor;
-}
-
-.box code {
-  padding: 0.2em 0.4em;
-  margin: 0;
-  font-size: 85%;
-  background-color: colors.$codeBgColor;
-  border-radius: 6px;
-}
-
-.box a {
-  color: colors.$linkColor;
-  text-decoration: none;
-}
-
-.box ul,
-.box ol {
-  padding-left: 32px;
-}
-
-.box pre {
-  padding: 16px;
-  overflow: auto;
-  font-size: 85%;
-  line-height: 1.45;
-  background-color: colors.$mainColor;
-  border-radius: 6px;
-}
-
-.box pre code {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  font-size: 100%;
-  overflow: visible;
-}
-
-.box sup {
-  font-size: 75%;
-  top: -0.5em;
-  position: absolute;
-}
-
-.box sup::before {
-  content: "[";
-}
-
-.box sup::after {
-  content: "]";
-}
-
-.box a[class="footnote-ref"] {
-  position: relative;
-}
-
-/* table */
-.box table {
-  width: max-content;
-  max-width: 100%;
-  overflow: auto;
-  border-collapse: collapse;
-}
-
-.box table tr {
-  background-color: #ffffff;
-  border-top: 1px solid #d8dee4;
-}
-
-.box table tr:nth-child(even) {
-  background-color: colors.$codeBlockBgColor;
-}
-
-.box table td {
-  padding: 6px 13px;
-  border: 1px solid colors.$lineBlueColor;
-}
-
-.box table th {
-  border: 1px solid colors.$lineBlueColor;
-  padding: 6px 13px;
-  font-weight: 600;
-}
-
-.box hr {
-  height: 0.25em;
-  padding: 0;
-  margin: 24px 0;
-  background-color: colors.$lineBlueColor;
-  border: 0;
-}
-
-/* task list */
-
-.box ul[class="contains-task-list"] {
-  list-style: none;
-  padding-left: 0;
-}
-
-/* footnotes */
 section[class="footnotes"] {
   border-top: 1px solid #d8dee4;
   font-size: 12px;
@@ -163,28 +45,26 @@ section[class="footnotes"] ol > li {
   margin: 16px 0;
 }
 
-/* scroll bar */
+// Scroll bar
+.box {
+  &::-webkit-scrollbar {
+    @include mixins.scrollbar
+  }
 
-.box::-webkit-scrollbar {
-  width: sizes.$scrollBarSize;
-  height: sizes.$scrollBarSize;
+  &::-webkit-scrollbar-thumb {
+    @include mixins.scrollbar-thumb
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    @include mixins.scrollbar-thumb-hover
+  }
+
+  &::-webkit-scrollbar-track {
+    @include mixins.scrollbar-track
+  }
 }
 
-.box::-webkit-scrollbar-thumb {
-  height: 17%;
-  background: colors.$scrollThumbColor;
-  border-radius: sizes.$scrollBorderRadius;
-}
-
-.box::-webkit-scrollbar-thumb:hover {
-  background: colors.$scrollThumbHoverColor;
-}
-
-.box::-webkit-scrollbar-track {
-  background: colors.$scrollTrackColor;
-  border-radius: sizes.$scrollBorderRadius;
-}
-
+// Media Query
 @include mixins.tablet {
   .box {
     margin: sizes.$boxMargin;

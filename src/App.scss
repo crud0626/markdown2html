@@ -1,3 +1,5 @@
+@use "./common/mixins";
+
 * {
   box-sizing: border-box;
 }
@@ -32,30 +34,26 @@ code {
     monospace;
 }
 
-/* scroll bar */
+// Scroll bar
+body {
+  &::-webkit-scrollbar {
+    @include mixins.scrollbar
+  }
 
-body::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  &::-webkit-scrollbar-thumb {
+    @include mixins.scrollbar-thumb
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    @include mixins.scrollbar-thumb-hover
+  }
+
+  &::-webkit-scrollbar-track {
+    @include mixins.scrollbar-track
+  }
 }
 
-body::-webkit-scrollbar-thumb {
-  height: 17%;
-  background: #9ea5ae;
-  border-radius: 10px;
-}
-
-body::-webkit-scrollbar-thumb:hover {
-  background: #5c646e;
-}
-
-body::-webkit-scrollbar-track {
-  background: #cfd8dc;
-  border-radius: 10px;
-}
-
-/* arrow toggle */
-
+// Arrow toggle
 .arrow {
   margin-left: 15px;
   position: relative;
@@ -96,8 +94,7 @@ body::-webkit-scrollbar-track {
   transform: translateY(0%);
 }
 
-/* dark mode */
-
+// Dark mode
 section.dark {
   background: #24292f;
   color: white;
