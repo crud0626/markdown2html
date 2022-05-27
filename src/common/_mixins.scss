@@ -36,18 +36,13 @@
     a {
         color: colors.$linkColor;
         text-decoration: none;
-        
-        &.footnote-ref {
+
+        &[class="footnote-ref"] {
             position: relative;
         }
     }
 
-    // .footnote-ref {
-    //     position: relative;
-    // }
-
-    ul,
-    ol {
+    ul, ol {
         padding-left: 32px;
     }
 
@@ -79,11 +74,11 @@
         top: -0.5em;
         position: absolute;
 
-        & ::before {
+        &::before {
             content: "[";
         }
         
-        & ::after {
+        &::after {
             content: "]";
         }
     }
@@ -112,7 +107,7 @@
             background-color: #ffffff;
             border-top: 1px solid #d8dee4;
 
-            & :nth-child(odd) {
+            &:nth-child(odd) {
                 background-color: colors.$codeBlockBgColor;
             }
         }
@@ -130,7 +125,7 @@
     }
 }
 
-// Scroll bar, 안먹힘. 수정해야됨.
+// Scroll bar
 @mixin scrollbar {
     width: sizes.$scrollBarSize;
     height: sizes.$scrollBarSize;

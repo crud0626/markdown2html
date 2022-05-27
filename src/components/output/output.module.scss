@@ -3,6 +3,7 @@
 @use "./../../common/mixins";
 
 .box {
+  @include mixins.markdown;
   padding: 10px;
   width: sizes.$boxSize;
   min-width: sizes.$boxMinWidth;
@@ -12,37 +13,33 @@
   border: sizes.$boxBorder;
   border-radius: sizes.$boxBorderRadius;
   background-color: white;
-}
 
-.box > *:first-child {
-  margin-top: 0;
-}
+  & > *:first-child {
+    margin-top: 0;
+  }
 
-.box > *:last-child {
-  margin-bottom: 0;
-}
-
-.box {
-  @include mixins.markdown;
+  & > *:last-child {
+    margin-bottom: 0;
+  }
 }
 
 section[class="footnotes"] {
   border-top: 1px solid #d8dee4;
   font-size: 12px;
   color: #57606a;
-}
 
-section[class="footnotes"] > hr {
-  display: none;
-}
+  & > hr {
+    display: none;
+  }
 
-section[class="footnotes"] ol {
-  margin: 0;
-  padding-left: 16px;
-}
+  & ol {
+    margin: 0;
+    padding-left: 16px;
 
-section[class="footnotes"] ol > li {
-  margin: 16px 0;
+    & > li {
+      margin: 16px 0;
+    }
+  }
 }
 
 // Scroll bar

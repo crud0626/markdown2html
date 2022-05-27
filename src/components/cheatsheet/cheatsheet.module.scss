@@ -31,8 +31,8 @@
 }
 
 .sheet {
-  width: 100%;
   @include mixins.markdown;
+  width: 100%;
   
   & table {
     width: 100%;
