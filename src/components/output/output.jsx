@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './output.module.css';
+import styles from './output.module.scss';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import remarkEmoji from 'remark-emoji';

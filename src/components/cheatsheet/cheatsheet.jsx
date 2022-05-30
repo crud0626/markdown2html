@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './cheatsheet.module.css';
+import styles from './cheatsheet.module.scss';
 
 const Cheatsheet = (props) => (
         <div className={`${styles.container} cheatsheet_container`}>
@@ -75,7 +75,7 @@ const Cheatsheet = (props) => (
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>> text</td>
+                                    <td> text</td>
                                     <td><blockquote className='sheet_quote'>text</blockquote></td>
                                 </tr>
                             </tbody>
