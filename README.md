@@ -6,9 +6,11 @@ Link: [mdtohtml.com](https://www.mdtohtml.com)
 
 ## 기술스택
 
-<img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" /> <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" /> <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" /> <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" /> <img src ="https://img.shields.io/badge/PostCSS-DD3A0A.svg?&style=for-the-badge&logo=PostCSS&logoColor=#DD3A0A"/></br>
+<img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" /> <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" /> <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" /> <img src ="https://img.shields.io/badge/SCSS-CC6699?style=for-the-badge&logo=sass&logoColor=white"/> <img src ="https://img.shields.io/badge/CSS_modules-000000?style=for-the-badge&logo=css-modules&logoColor=white"/></br>
 <img src="https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white" />
 <img src="https://img.shields.io/badge/Yarn-2C8EBB?style=for-the-badge&logo=yarn&logoColor=white" />
+
+
 
 ## 기능
 
@@ -28,6 +30,5 @@ Link: [mdtohtml.com](https://www.mdtohtml.com)
 
 ## 수정예정
 - [ ] line-break 관련문제
-- [ ] img 관련 문제
 - [ ] prefer-colorscheme 속성에 맞춘 다크모드 미리 적용
 - [ ] ol태그 nested관련 문제
