@@ -18,6 +18,7 @@ header {
   height: 100%;
 }
 
+// Left
 .left > .cheatsheet_btn {
   padding: 10px 15px;
   background: transparent;
@@ -26,35 +27,34 @@ header {
   color: white;
   font-size: 1rem;
   cursor: pointer;
+
+  &:hover {
+    color: black;
+    border-color: black;
+    background: colors.$cheatsheetColor;
+  }
 }
 
-.left > .cheatsheet_btn:hover {
-  color: black;
-  border-color: black;
-  background: colors.$cheatsheetColor;
-}
-
+// Center
 .center {
   display: flex;
   align-items: center;
-}
-
-a.center {
   text-decoration: none;
   color: white;
+
+  & > img {
+    margin-right: 10px;
+    width: sizes.$btnImageSize;
+    height: sizes.$btnImageSize;
+  }
+  
+  & > h1 {
+    font-size: 22px;
+    font-weight: normal;
+  }
 }
 
-.center > img {
-  margin-right: 10px;
-  width: sizes.$btnImageSize;
-  height: sizes.$btnImageSize;
-}
-
-.center > h1 {
-  font-size: 22px;
-  font-weight: normal;
-}
-
+// Right, darkmode button
 .darkmode_btn {
   display: inline-block;
   position: relative;
@@ -71,7 +71,6 @@ a.center {
 
 .darkmode_btn .onoff_switch {
   position: absolute;
-  cursor: pointer;
   top: 0;
   left: 0;
   right: 0;
@@ -81,15 +80,16 @@ a.center {
   border-radius: 20px;
   -webkit-transition: 0.4s;
   transition: 0.4s;
+  cursor: pointer;
 }
 
 .darkmode_btn .onoff_switch:before {
   position: absolute;
   content: "";
+  top: -5px;
+  left: 4px;
   height: 22px;
   width: 22px;
-  left: 4px;
-  top: -5px;
   background: #fff center/15px no-repeat url("../../../public/images/sun.png");
   -webkit-transition: 0.5s;
   transition: 0.4s;
@@ -99,11 +99,11 @@ a.center {
 .darkmode_btn input:checked + .onoff_switch {
   background: colors.$darkBtnColor;
   box-shadow: inset 1px 1px 2px #222;
-}
 
-.darkmode_btn input:checked + .onoff_switch:before {
-  background-image: url("../../../public/images/moon.png");
-  -webkit-transform: sizes.$darkmodeBarMove;
-  -ms-transform: sizes.$darkmodeBarMove;
-  transform: sizes.$darkmodeBarMove;
+  &::before {
+    background-image: url("../../../public/images/moon.png");
+    -webkit-transform: sizes.$darkmodeBarMove;
+    -ms-transform: sizes.$darkmodeBarMove;
+    transform: sizes.$darkmodeBarMove;
+  }
 }

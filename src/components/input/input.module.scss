@@ -8,15 +8,15 @@
   min-width: sizes.$boxMinWidth;
   width: sizes.$boxSize;
   height: sizes.$boxHeight;
-}
-
-.box {
-  padding: 10px;
-  width: 100%;
-  height: 100%;
-  border: sizes.$boxBorder;
-  border-radius: sizes.$boxBorderRadius;
-  resize: none;
+  
+  & .box {
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+    border: sizes.$boxBorder;
+    border-radius: sizes.$boxBorderRadius;
+    resize: none;
+  }
 }
 
 .eraser_btn {
@@ -31,33 +31,33 @@
   cursor: pointer;
   transition: transform 300ms;
   fill: gray;
-}
 
-.eraser_btn:hover {
-  fill: black;
-}
+  &:hover {
+    fill: black;
+  }
 
-.eraser_btn > img {
-  width: 100%;
-  height: 100%;
+  & > img {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 // Scroll bar
 .box {
   &::-webkit-scrollbar {
-    @include mixins.scrollbar
+    @include mixins.scrollbar;
   }
 
   &::-webkit-scrollbar-thumb {
-    @include mixins.scrollbar-thumb
+    @include mixins.scrollbar-thumb;
   }
 
   &::-webkit-scrollbar-thumb:hover {
-    @include mixins.scrollbar-thumb-hover
+    @include mixins.scrollbar-thumb-hover;
   }
 
   &::-webkit-scrollbar-track {
-    @include mixins.scrollbar-track
+    @include mixins.scrollbar-track;
   }
 }
 

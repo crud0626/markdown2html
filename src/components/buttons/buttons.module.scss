@@ -8,10 +8,10 @@
   width: 50%;
   min-width: sizes.$boxMinWidth;
   max-width: sizes.$boxMaxWidth;
-}
 
-form > input[type="file"] {
-  display: none;
+  & form > input[type="file"] {
+    display: none;
+  }
 }
 
 .button {
@@ -26,40 +26,34 @@ form > input[type="file"] {
   font-size: 1rem;
   cursor: pointer;
   user-select: none;
-}
 
-.button:hover {
-  background: colors.$btnHoverColor;
-}
-
-.button img {
-  margin-left: 10px;
-  width: 16px;
-  height: 16px;
-}
-
-.button svg {
-  width: 16px;
-  height: 16px;
-  margin-left: 10px;
+  &:hover {
+    background: colors.$btnHoverColor;
+  }
+  
+  & svg {
+    width: 16px;
+    height: 16px;
+    margin-left: 10px;
+  }
 }
 
 .dropdown_container {
   padding: 0;
-}
 
-.dropdown_container:hover {
-  background: white;
-}
+  &:hover {
+    background: white;
+  }
 
-.dropdown_btn {
-  display: flex;
-  align-items: baseline;
-  width: 100%;
-  height: 100%;
-  padding: 5px 10px;
-  background: transparent;
-  z-index: 2;
+  & .dropdown_btn {
+    display: flex;
+    align-items: baseline;
+    width: 100%;
+    height: 100%;
+    padding: 5px 10px;
+    background: transparent;
+    z-index: 2;
+  }
 }
 
 .inner_container {
@@ -71,21 +65,21 @@ form > input[type="file"] {
   visibility: hidden;
   opacity: 0;
   z-index: 1;
-}
 
-.inner_container > button {
-  font-family: none;
-  width: 100%;
-  padding: 5px 10px;
-  border: 1px solid colors.$btnHoverColor;
-  border-radius: 5px;
-  background: white;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
-.inner_container > button:hover {
-  background: colors.$btnHoverColor;
+  & > button {
+    font-family: none;
+    width: 100%;
+    padding: 5px 10px;
+    border: 1px solid colors.$btnHoverColor;
+    border-radius: 5px;
+    background: white;
+    font-size: 1rem;
+    cursor: pointer;
+  
+    &:hover {
+      background: colors.$btnHoverColor;
+    }
+  }
 }
 
 @include mixins.tablet {

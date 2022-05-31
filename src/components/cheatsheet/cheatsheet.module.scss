@@ -2,10 +2,6 @@
 @use "./../../common/sizes";
 @use "./../../common/mixins";
 
-.header > h2 {
-  text-align: center;
-}
-
 .container {
   margin: auto;
   padding: 0 20px 20px 20px;
@@ -17,6 +13,10 @@
   background-color: colors.$cheatsheetColor;
   z-index: 1;
   overflow-y: auto;
+}
+
+.header {
+  text-align: center;
 }
 
 .body {
@@ -49,14 +49,14 @@
       margin: 0;
     }
   }
-}
 
-.sheet > p {
-  font-size: 1.3rem;
-}
+  & > p {
+    font-size: 1.3rem;
+  }
 
-.task_list {
-  list-style: none;
+  & .task_list {
+    list-style: none;
+  }
 }
 
 // Scroll Bar

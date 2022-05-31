@@ -4,21 +4,20 @@
   box-sizing: border-box;
 }
 
-html,
-body {
+html {
   margin: 0;
   padding: 0;
   width: 100%;
-}
 
-body {
-  height: 100%;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  & body {
+    @extend html;
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+      "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 }
 
 #root {
@@ -30,26 +29,25 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
 // Scroll bar
 body {
   &::-webkit-scrollbar {
-    @include mixins.scrollbar
+    @include mixins.scrollbar;
   }
 
   &::-webkit-scrollbar-thumb {
-    @include mixins.scrollbar-thumb
+    @include mixins.scrollbar-thumb;
   }
 
   &::-webkit-scrollbar-thumb:hover {
-    @include mixins.scrollbar-thumb-hover
+    @include mixins.scrollbar-thumb-hover;
   }
 
   &::-webkit-scrollbar-track {
-    @include mixins.scrollbar-track
+    @include mixins.scrollbar-track;
   }
 }
 
@@ -59,111 +57,103 @@ body {
   position: relative;
   height: 11px;
   width: 10px;
-}
-.arrow::before,
-.arrow::after {
-  content: "";
-  position: absolute;
-  bottom: 0px;
-  width: 0.15rem;
-  height: 100%;
-  transition: all 0.5s;
-}
-.arrow::before {
-  left: -3px;
-  transform: rotate(-45deg);
-  background: #394a6d;
-}
-.arrow::after {
-  left: 3px;
-  transform: rotate(45deg);
-  background: #394a6d;
-}
-.open .arrow::before {
-  left: -3px;
-  transform: rotate(45deg);
-}
-.open .arrow::after {
-  left: 3px;
-  transform: rotate(-45deg);
+
+  &::before {
+    @include mixins.arrow-close(-3px, -45deg);
+  }
+
+  &::after {
+    @include mixins.arrow-close(3px, 45deg);
+  }
 }
 
-.open #inner_btns_container {
-  visibility: visible;
-  opacity: 1;
-  transform: translateY(0%);
+.open {
+  & #inner_btns_container {
+    visibility: visible;
+    transform: translateY(0%);
+    opacity: 1;
+  }
+
+  & .arrow::before {
+    @include mixins.arrow-open(-3px, 45deg);
+  }
+
+  & .arrow::after {
+    @include mixins.arrow-open(3px, -45deg);
+  }
 }
 
 // Dark mode
 section.dark {
   background: #24292f;
   color: white;
+
+  & #output,
+  & #inputbox {
+    background: #1e1f21;
+    color: white;
+  }
+
+  & #output blockquote {
+    color: white;
+  }
+
+  & .inner_btn {
+    background: #1e1f21;
+    color: white;
+  
+    &:hover {
+      background: #a1c1ea;
+      color: black;
+    }
+  }
+
+  & .sheet_quote {
+    color: white;
+  }
+
+  & #eraser {
+    background: #1e1f21;
+  
+    &:hover {
+      fill: white;
+    }
+  }
 }
 
-section.dark #output,
-section.dark #inputbox {
-  background: #1e1f21;
-  color: white;
-}
+section.dark div.buttons_container {
+  & > .button {
+    background: #1e1f21;
+    color: white;
+    fill: white;
 
-section.dark #output blockquote {
-  color: white;
+    &:hover {
+      background: #a1c1ea;
+      color: black;
+    }
+  }
+
+  & > #dropdown_container:hover {
+    background: #1e1f21;
+    color: white;
+  }
+
+  & div.arrow::after,
+  div.arrow::before {
+    background: white;
+  }
 }
 
 section.dark div.cheatsheet_container {
   background: #24292f;
   color: white;
-}
 
-section.dark div.cheatsheet_container th,
-section.dark div.cheatsheet_container td {
-  background: #1e1f21;
-  color: white;
-}
+  & th, td {
+    background: #1e1f21;
+    color: white;
+  }
 
-section.dark div.cheatsheet_container td pre {
-  background: rgba(175, 184, 193, 0.2);
-}
-
-section.dark div.buttons_container > .button {
-  background: #1e1f21;
-  color: white;
-  fill: white;
-}
-
-section.dark div.buttons_container > .button:hover {
-  background: #a1c1ea;
-  color: black;
-}
-
-section.dark div.buttons_container > #dropdown_container:hover {
-  background: #1e1f21;
-  color: white;
-}
-
-section.dark div.buttons_container div.arrow::after,
-section.dark div.buttons_container div.arrow::before {
-  background: white;
-}
-
-section.dark .inner_btn {
-  background: #1e1f21;
-  color: white;
-}
-
-section.dark .inner_btn:hover {
-  background: #a1c1ea;
-  color: black;
-}
-
-section.dark .sheet_quote {
-  color: white;
-}
-
-section.dark #eraser {
-  background: #1e1f21;
-}
-
-section.dark #eraser:hover {
-  fill: white;
+  & td pre {
+    background: rgba(175, 184, 193, 0.2);
+  }
 }

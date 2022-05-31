@@ -10,17 +10,17 @@
   align-items: center;
   justify-content: space-around;
   background-color: colors.$mainColor;
-}
 
-.section {
-  display: flex;
-  justify-content: space-evenly;
-  width: sizes.$sectionWidth;
-  height: 70%;
+  & .section {
+    display: flex;
+    justify-content: space-evenly;
+    width: sizes.$sectionWidth;
+    height: 70%;
+  }
 }
 
 @include mixins.tablet {
-  .section {
+  .container .section {
     display: block;
   }
 }

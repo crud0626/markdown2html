@@ -145,3 +145,21 @@
     background: colors.$scrollTrackColor;
     border-radius: sizes.$scrollBorderRadius;
 }
+
+// Arrow
+@mixin arrow-close($leftPX, $rotateDeg) {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    width: 0.15rem;
+    height: 100%;
+    transition: all 0.5s;
+    background: #394a6d;
+    left: $leftPX;
+    transform: rotate($rotateDeg);
+}
+
+@mixin arrow-open($leftPX, $rotateDeg) {
+    left: $leftPX;
+    transform: rotate($rotateDeg);
+}
