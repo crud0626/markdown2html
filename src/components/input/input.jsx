@@ -2,10 +2,6 @@ import React from 'react';
 import styles from './input.module.scss';
 
 const Input = (props) => {
-    const preventEvent = (event) => {
-        event.preventDefault();
-    }
-
     const changeTab = (event) => {
         if (event.key === "Tab") {
             event.preventDefault();
@@ -21,7 +17,14 @@ const Input = (props) => {
     }
 
     const onInput = (event) => {
-        props.changeFormValue(event.target.value);
+        props.onChangeValue(event.target.value);
+        return;
+    }
+
+    const onDropFile = (event) => {
+        event.preventDefault();
+        props.checkFileType(event.dataTransfer.files[0]);
+        return;
     }
 
     return (
@@ -31,14 +34,14 @@ const Input = (props) => {
             className={styles.box} 
             onKeyDown={changeTab}
             onChange={onInput}
-            onDragEnter={preventEvent}
-            onDragOver={preventEvent}
-            onDrop={props.dragFile}
-            value={props.text}
+            onDragEnter={e => e.preventDefault()}
+            onDragOver={e => e.preventDefault()}
+            onDrop={onDropFile}
+            value={props.inputValue}
             spellCheck="false"
             aria-label="input box"
         />
-        <button id='eraser' className={styles.eraser_btn} onClick={props.onClickEraser} aria-label="erase input button">
+        <button id='eraser' className={styles.eraser_btn} onClick={props.onErase} aria-label="erase input button">
             <svg viewBox="0 0 96.000000 96.000000">
                 <g transform="translate(0.000000,96.000000) scale(0.100000,-0.100000)">
                     <path d="M56 884 c-9 -8 -16 -19 -16 -24 0 -9 247 -258 339 -343 22 -21 41

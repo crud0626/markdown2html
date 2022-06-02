@@ -6,76 +6,85 @@ import Output from '../output/output';
 import styles from './section.module.scss';
 
 const Section = ({isSheet, isDark}) => {
-    const [text, setText] = useState("# MD TO HTML\nHello, This is a site that converts markdown into html.\n## Features\n1. You can download it to markdown(.md) or html(.txt)\n2. If you have an already written md file, you can upload it.\n3. The result is the same as Github\n4. It is free!\n\n---\n\n> Thank you, enjoy!");
+    const [inputValue, setInputValue] = useState("# MD TO HTML\nHello, This is a site that converts markdown into html.\n## Features\n1. You can download it to markdown(.md) or html(.txt)\n2. If you have an already written md file, you can upload it.\n3. The result is the same as Github\n4. It is free!\n\n---\n\n> Thank you, enjoy!");
 
     const outputRef = useRef();
+    const copySpanRef = useRef();
 
-    const changeFormValue = (value) => {
-        setText(value);
-    }
-
-    const onClickEraser = useCallback(() => {
-        setText("");
-    },[])
-
-    const copyText = () => {
-        const tooltip = document.querySelector("#copyTooltip");
-        const inputArea = document.querySelector('#inputbox');
-        if (inputArea.value) {
-            navigator.clipboard.writeText(inputArea.value)
+    const onChangeValue = (value) => {setInputValue(value)};
+    const onErase = useCallback(() => {setInputValue("")}, []);
+    
+    const copyValue = () => {
+        if (inputValue) {
+            navigator.clipboard.writeText(inputValue)
             .then(() => {
-                tooltip.innerText = "Copied!";
-
+                copySpanRef.current.innerText = "Copied!";
+                setTimeout(() => {
+                    copySpanRef.current.innerText = "Copy";
+                }, 1500);
             })
-            .then(setTimeout(() => {
-                tooltip.innerText = "Copy";
-            }, 1500))
-            .catch(error => console.log(`Failed copy! : ${error}`))
+            .catch(error => {
+                alert(`Failed copy!`);
+                throw new Error(`Failed copy: ${error}`);
+            });
+            return;
         }
+
+        alert("No value entered");
+        return;
     }
 
-    const checkFileType = (event) => {
-        event.preventDefault();
-
-        const file = event.dataTransfer.files[0];
-        const ext = file.name.slice(-3).toLowerCase();
-
-        if(file.type === "text/plain" || ext === ".md") {
-            uploadTextFile(event);
-        } else {
-            alert("You can only upload txt or md files");
+    const checkFileType = (targetFile) => {
+        if(targetFile.type === "text/plain") {
+            uploadFile(targetFile);
+            return;
         }
+
+        const fileExt = targetFile.name.split(".").pop().toLowerCase();
+        if(fileExt === "md" || fileExt === "markdown") {
+            uploadFile(targetFile);
+            return;
+        }
+
+        alert("You can only upload text or markdown files.");
+        return;
     }
 
-    const uploadTextFile = (event) => {
-        event.preventDefault();
-        let uploadedFile = "";
-
-        if (event.type === "drop") {
-            uploadedFile = event.dataTransfer.files[0];
-        } else {
-            uploadedFile = event.target.files[0];
-        }
-        const file = new FileReader();
-        file.onload = () => {
-            setText(file.result);
-        }
-        file.readAsText(uploadedFile);
+    const uploadFile = (targetFile) => {
+        const reader = new FileReader();
+        reader.onload = () => {setInputValue(reader.result)};
+        reader.addEventListener("error", (e) => {
+            alert("파일을 읽는 도중 에러가 발생했습니다.");
+            throw new Error(`파일을 읽는 도중 에러가 발생했습니다. ${e}`);
+        });
+        reader.readAsText(targetFile);
+        return;
     }
 
-    const downloadFile = (event) => {
+    const downloadFile = ({target}) => {
+        let data, dataType;
         const link = document.createElement("a");
-        let data = "";
-        if (event.target.dataset.title) {
-            data = outputRef.current.innerHTML;
-            link.download = "mdtohtml.html";
-        } else {
-            data = text;
-            link.download = "README.md";
+        
+        switch(target.dataset.role) {
+            case "html":
+                data = outputRef.current.innerHTML;
+                dataType = "text/html";
+                link.download = "mdtohtml.html";
+                break;
+            case "markdown":
+                data = inputValue;
+                dataType = "text/plain";
+                link.download = "README.md";
+                break;
+            default:
+                alert("Undefined role.");
+                throw new Error("Undefined role.");
         }
-        const blob = new Blob([data], {type: "text/plain"})
-        link.href = window.URL.createObjectURL(blob);
+
+        const blobData = new Blob([data], {type: dataType});
+        link.href = window.URL.createObjectURL(blobData);
         link.click();
+        return;
     }
 
     return (
@@ -83,19 +92,20 @@ const Section = ({isSheet, isDark}) => {
             {!isSheet && 
             <>
                 <Buttons 
-                copyText={copyText}
-                uploadTextFile={uploadTextFile}
-                downloadFile={downloadFile}
+                    copySpanRef={copySpanRef}
+                    copyValue={copyValue}
+                    downloadFile={downloadFile}
+                    checkFileType={checkFileType}
                 />
                 <div className={styles.section}>
                     <Input 
-                        changeFormValue={changeFormValue}
-                        onClickEraser={onClickEraser}
-                        dragFile={checkFileType}
-                        text={text}
+                        onChangeValue={onChangeValue}
+                        onErase={onErase}
+                        inputValue={inputValue}
+                        checkFileType={checkFileType}
                     />
                     <Output 
-                        text={text} 
+                        inputValue={inputValue} 
                         ref={outputRef}
                     />
                 </div>

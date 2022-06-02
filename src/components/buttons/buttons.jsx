@@ -9,11 +9,17 @@ const Buttons = (props) => {
         setToggle(toggle => !toggle);
     }
 
+    const onChangeFile = (event) => {
+        event.preventDefault();
+        props.checkFileType(event.target.files[0]);
+        return;
+    }
+
     return(
         <div className={`${styles.container} buttons_container`}>
             <label htmlFor='upload' className={`${styles.button} button`} aria-label="add file button">
                 <form action="#">
-                    <input type="file" id='upload' accept='.txt,.md' onChange={props.uploadTextFile}/>
+                    <input type="file" id='upload' accept='.txt,.md' onChange={onChangeFile}/>
                 </form>
                 <span>Add File</span>
                 <svg viewBox="0 0 96.000000 96.000000">
@@ -32,16 +38,16 @@ const Buttons = (props) => {
                     <div className="arrow"></div>
                 </div>
                 <div id='inner_btns_container' className={styles.inner_container}>
-                    <button className="inner_btn" onClick={props.downloadFile} aria-label="markdown download button">
+                    <button className="inner_btn" data-role="markdown" onClick={props.downloadFile} aria-label="markdown download button">
                         MARKDOWN
                     </button>
-                    <button className="inner_btn" data-title="html" onClick={props.downloadFile} aria-label="html download button">
+                    <button className="inner_btn" data-role="html" onClick={props.downloadFile} aria-label="html download button">
                         HTML
                     </button>
                 </div>
             </div>
-            <button className={`${styles.button} button`} onClick={props.copyText} aria-label="copy button">
-                <span id='copyTooltip'>Copy</span>
+            <button className={`${styles.button} button`} onClick={props.copyValue} aria-label="copy button">
+                <span ref={props.copySpanRef}>Copy</span>
                 <svg viewBox="0 0 96.000000 96.000000">
                     <g transform="translate(0.000000,96.000000) scale(0.100000,-0.100000)">
                         <path d="M330 950 c0 -6 -16 -27 -35 -47 l-35 -36 0 -274 c0 -386 -22 -362
