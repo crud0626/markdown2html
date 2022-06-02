@@ -4,33 +4,22 @@ import Footer from './components/footer/footer';
 import Header from './components/header/header';
 import Section from './components/section/section';
 
-function App() {
-  const [sheet, setSheet] = useState(false);
-  const [darkmode, setDarkmode] = useState(false);
+const App = () => {
+  const [isOpenSheet, setIsOpenSheet] = useState(false);
+  const [isDark, setIsDark] = useState(false);
 
-  const changeSheet = () => {
-    setSheet(sheet => (!sheet))
-  }
-
-  const changeDayNight = () => {
-    const section = document.querySelector("section");
-    if (darkmode) {
-        section.classList.remove("dark");
-    } else {
-        section.classList.add("dark");
-    }
-    setDarkmode(darkmode => !darkmode);
-  }
-
+  const handleSheet = () => {setIsOpenSheet(isOpenSheet => !isOpenSheet)};
+  const handleDarkMode = () => {setIsDark(isDark => !isDark)};
 
   return (
     <>
       <Header 
-        changeSheet={changeSheet}
-        onChangeDark={changeDayNight}
+        handleSheet={handleSheet}
+        handleDarkMode={handleDarkMode}
       />
       <Section 
-        isSheet={sheet}
+        isSheet={isOpenSheet}
+        isDark={isDark}
       />
       <Footer />
     </>
