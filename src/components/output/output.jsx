@@ -6,7 +6,7 @@ import remarkEmoji from 'remark-emoji';
 
 const Output = React.forwardRef(({inputValue}, ref) => {
     return(
-        <div ref={ref} id='output' className={styles.box}>
+        <div ref={ref} className={styles.box}>
             <ReactMarkdown 
                 children={inputValue} 
                 remarkPlugins={[remarkGfm, remarkEmoji]} 

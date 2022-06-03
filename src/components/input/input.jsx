@@ -1,38 +1,42 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import styles from './input.module.scss';
 
 const Input = (props) => {
-    const changeTab = (event) => {
+    const inputRef = useRef();
+
+    useEffect(() => {
+        inputRef.current.focus();
+    }, [inputRef]);
+
+    const convertTabSpace = (event) => {
         if (event.key === "Tab") {
             event.preventDefault();
             const insertStr = "    ";
-            const inputBox = document.querySelector("#inputbox");
+            const inputBox = inputRef.current;
             const {selectionStart, selectionEnd} = inputBox;
-            
-            inputBox.value = `${inputBox.value.substring(0, selectionStart)}${insertStr}${inputBox.value.substring(selectionEnd)}`;
+            const newValue = `${inputBox.value.substring(0, selectionStart)}${insertStr}${inputBox.value.substring(selectionEnd)}`;
+
+            inputBox.value = newValue;
             inputBox.selectionStart = selectionStart + insertStr.length;
-            inputBox.selectionEnd = selectionEnd + insertStr.length;
-            return;
+            inputBox.selectionEnd = selectionStart + insertStr.length;
+            
+            props.onChangeValue(newValue);
         }
     }
 
-    const onInput = (event) => {
-        props.onChangeValue(event.target.value);
-        return;
-    }
+    const onInput = (event) => props.onChangeValue(event.target.value);
 
     const onDropFile = (event) => {
         event.preventDefault();
         props.checkFileType(event.dataTransfer.files[0]);
-        return;
     }
 
     return (
         <div className={styles.container}>
         <textarea 
-            id="inputbox"
+            ref={inputRef}
             className={styles.box} 
-            onKeyDown={changeTab}
+            onKeyDown={convertTabSpace}
             onChange={onInput}
             onDragEnter={e => e.preventDefault()}
             onDragOver={e => e.preventDefault()}

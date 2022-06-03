@@ -5,9 +5,7 @@ import styles from './buttons.module.scss';
 const Buttons = (props) => {
     const [toggle, setToggle] = useState(false);
 
-    const onBtnToggle = () => {
-        setToggle(toggle => !toggle);
-    }
+    const onBtnToggle = () => {setToggle(toggle => !toggle)};
 
     const onChangeFile = (event) => {
         event.preventDefault();

@@ -16,49 +16,40 @@ const Section = ({isSheet, isDark}) => {
     
     const copyValue = () => {
         if (inputValue) {
-            navigator.clipboard.writeText(inputValue)
-            .then(() => {
-                copySpanRef.current.innerText = "Copied!";
-                setTimeout(() => {
-                    copySpanRef.current.innerText = "Copy";
-                }, 1500);
-            })
-            .catch(error => {
-                alert(`Failed copy!`);
-                throw new Error(`Failed copy: ${error}`);
-            });
+            navigator.clipboard.writeText(inputValue);
+
+            copySpanRef.current.innerText = "Copied!";
+            setTimeout(() => {
+                copySpanRef.current.innerText = "Copy";
+            }, 1500);
             return;
         }
-
         alert("No value entered");
-        return;
     }
 
     const checkFileType = (targetFile) => {
-        if(targetFile.type === "text/plain") {
+        if (targetFile.type === "text/plain") {
             uploadFile(targetFile);
             return;
         }
 
         const fileExt = targetFile.name.split(".").pop().toLowerCase();
-        if(fileExt === "md" || fileExt === "markdown") {
+        if (fileExt === "md" || fileExt === "markdown") {
             uploadFile(targetFile);
             return;
         }
 
         alert("You can only upload text or markdown files.");
-        return;
     }
 
     const uploadFile = (targetFile) => {
         const reader = new FileReader();
         reader.onload = () => {setInputValue(reader.result)};
         reader.addEventListener("error", (e) => {
-            alert("파일을 읽는 도중 에러가 발생했습니다.");
-            throw new Error(`파일을 읽는 도중 에러가 발생했습니다. ${e}`);
+            alert("Error occurs when reading file");
+            throw new Error(`Error occurs when reading file : ${e}`);
         });
         reader.readAsText(targetFile);
-        return;
     }
 
     const downloadFile = ({target}) => {
@@ -84,7 +75,6 @@ const Section = ({isSheet, isDark}) => {
         const blobData = new Blob([data], {type: dataType});
         link.href = window.URL.createObjectURL(blobData);
         link.click();
-        return;
     }
 
     return (
@@ -99,14 +89,14 @@ const Section = ({isSheet, isDark}) => {
                 />
                 <div className={styles.section}>
                     <Input 
-                        onChangeValue={onChangeValue}
-                        onErase={onErase}
                         inputValue={inputValue}
                         checkFileType={checkFileType}
+                        onChangeValue={onChangeValue}
+                        onErase={onErase}
                     />
                     <Output 
-                        inputValue={inputValue} 
                         ref={outputRef}
+                        inputValue={inputValue} 
                     />
                 </div>
             </>
