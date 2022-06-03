@@ -10,14 +10,13 @@ const Output = React.forwardRef(({inputValue}, ref) => {
             <ReactMarkdown 
                 children={inputValue} 
                 remarkPlugins={[remarkGfm, remarkEmoji]} 
-                linkTarget="_blank"
                 components={
                    {a: ({ node, children, ...props}) => {
-                       const linkProps = props;
-                         if (props.target === '_blank') {
-                            linkProps['rel'] = 'noopener noreferrer';
-                       }
-                        return <a {...linkProps}>{children}</a>
+                        if(!(props.role === "doc-backlink" || props.role === "doc-noteref")) {
+                           props['target'] = '_blank';
+                           props['rel'] = 'noopener noreferrer';
+                        }
+                        return <a {...props}>{children}</a>;
                     }}
                 }
              />
