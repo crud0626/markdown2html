@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styles from './header.module.scss';
 
-const Header = ({handleSheet, handleDarkMode}) => (
+const Header = ({handleSheet, handleDarkMode}) => {
+    const darkmodeBtnRef = useRef();
+
+    useEffect(() => {
+        const condition = window.localStorage.getItem("data-dark") || window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (condition) {
+          darkmodeBtnRef.current.click();
+        }
+      }, []);
+
+    return (
         <header>
             <div className={styles.container}>
                 <div className={styles.left}>
@@ -15,12 +25,13 @@ const Header = ({handleSheet, handleDarkMode}) => (
                 </a>
                 <div className={styles.right}>
                     <label className={styles.darkmode_btn}>
-                        <input type="checkbox" onClick={handleDarkMode} aria-label="darkmode button"/>
+                        <input ref={darkmodeBtnRef} type="checkbox" onClick={handleDarkMode} aria-label="darkmode button"/>
                         <span className={styles.onoff_switch}></span> 
                     </label>
                 </div>
             </div>
         </header>
     );
+};
 
 export default Header;

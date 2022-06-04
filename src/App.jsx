@@ -9,7 +9,12 @@ const App = () => {
   const [isDark, setIsDark] = useState(false);
 
   const handleSheet = () => {setIsOpenSheet(isOpenSheet => !isOpenSheet)};
-  const handleDarkMode = () => {setIsDark(isDark => !isDark)};
+  const handleDarkMode = () => {
+    isDark ? window.localStorage.removeItem("data-dark") 
+    : window.localStorage.setItem("data-dark", true);
+
+    setIsDark(isDark => !isDark);
+  };
 
   return (
     <>

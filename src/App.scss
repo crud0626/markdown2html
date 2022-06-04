@@ -88,13 +88,13 @@ section.dark {
   background: #24292f;
   color: white;
 
-  & #output,
+  & #outputbox,
   & #inputbox {
     background: #1e1f21;
     color: white;
   }
 
-  & #output blockquote {
+  & #outputbox blockquote {
     color: white;
   }
 

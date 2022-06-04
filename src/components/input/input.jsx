@@ -35,6 +35,7 @@ const Input = (props) => {
     return (
         <div className={styles.container}>
         <textarea 
+            id='inputbox'
             ref={inputRef}
             className={styles.box} 
             onKeyDown={convertTabSpace}
