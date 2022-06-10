@@ -10,8 +10,6 @@ Link: [mdtohtml.com](https://www.mdtohtml.com)
 <img src="https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white" />
 <img src="https://img.shields.io/badge/Yarn-2C8EBB?style=for-the-badge&logo=yarn&logoColor=white" />
 
-
-
 ## 기능
 
 1. 치트시트제공
@@ -29,6 +27,6 @@ Link: [mdtohtml.com](https://www.mdtohtml.com)
 - Netlify와 Github를 연동해 배포 자동화
 
 ## 수정예정
+
 - [ ] line-break 관련문제
-- [ ] prefer-colorscheme 속성에 맞춘 다크모드 미리 적용
 - [ ] ol태그 nested관련 문제
