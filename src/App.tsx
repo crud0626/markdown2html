@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import './App.scss';
-import Footer from './components/footer/footer';
-import Header from './components/header/header';
-import Section from './components/section/section';
+import Footer from './components/Footer/Footer';
+import Header from './components/Header/Header';
+import Section from './components/Section/Section';
 
 const App = () => {
   const [isOpenSheet, setIsOpenSheet] = useState<boolean>(false);
