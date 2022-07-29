@@ -3,14 +3,20 @@ import { useState } from 'react';
 import Icon from '../icon/icon';
 import styles from './buttons.module.scss';
 
-const Buttons = (props) => {
-    const [toggle, setToggle] = useState(false);
+interface IProps {
+    copyValue(): void;
+    downloadFile({ target }: React.MouseEvent): void;
+    checkFileType(targetFile: File): void;
+}
 
-    const onBtnToggle = () => {setToggle(toggle => !toggle)};
+const Buttons = React.forwardRef<HTMLSpanElement, IProps>((props, ref) => {
+    const [toggle, setToggle] = useState<boolean>(false);
 
-    const onChangeFile = (event) => {
+    const onBtnToggle = () => setToggle(toggle => !toggle);
+
+    const onChangeFile = (event: React.ChangeEvent<HTMLInputElement>) => {
         event.preventDefault();
-        props.checkFileType(event.target.files[0]);
+        if (event.target.files) props.checkFileType(event.target.files[0]);
         return;
     }
 
@@ -40,7 +46,7 @@ const Buttons = (props) => {
                 </div>
             </div>
             <button className={`${styles.button} button`} onClick={props.copyValue} aria-label="copy button">
-                <span ref={props.copySpanRef}>Copy</span>
+                <span ref={ref}>Copy</span>
                     <Icon
                         define={[
                             `M330 950 c0 -6 -16 -27 -35 -47 l-35 -36 0 -274 c0 -386 -22 -362 330 -362 229 0 257 1 276 17 44 37 46 51 45 331 0 146 0 274 0 283 -1 9 -16 31 -33 49 -18 18 -32 36 -30 41 1 4 -115 8 -258 8 -175 0 -260 -3 -260 -10z m504 -82 c24 -34 24 -517 0 -553 l-16 -25 -228 0 -228 0 -16 25 c-24 36 -24 519 0 553 15 22 19 22 244 22 225 0 229 0 244 -22z`, 
@@ -50,6 +56,6 @@ const Buttons = (props) => {
             </button>
         </div>
     );
-};
+});
 
 export default Buttons;

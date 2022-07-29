@@ -5,10 +5,16 @@ import remarkGfm from 'remark-gfm';
 import remarkEmoji from 'remark-emoji';
 import remarkBreaks from "remark-breaks";
 
-const Output = React.forwardRef(({inputValue}, ref) => {
+interface IProps {
+    inputValue: string | ArrayBuffer;
+}
+
+const Output = React.forwardRef<HTMLDivElement, IProps>(({ inputValue }, ref) => {
     return(
         <div id='outputbox' ref={ref} className={styles.box}>
-            <ReactMarkdown 
+            {
+                typeof inputValue === "string" &&
+                <ReactMarkdown 
                 children={inputValue} 
                 remarkPlugins={[remarkGfm, remarkEmoji, remarkBreaks]} 
                 components={{
@@ -22,6 +28,7 @@ const Output = React.forwardRef(({inputValue}, ref) => {
                     }}
                 }
              />
+            }
          </div>
     );
 });

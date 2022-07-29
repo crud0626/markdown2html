@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './cheatsheet.module.scss';
 
-const Cheatsheet = (props) => (
+const Cheatsheet = () => (
         <div className={`${styles.container} cheatsheet_container`}>
             <div className={styles.header}>
                 <h2>Markdown Cheatsheet</h2>

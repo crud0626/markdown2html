@@ -1,12 +1,17 @@
 import React, { useEffect, useRef } from 'react';
 import styles from './header.module.scss';
 
-const Header = ({handleSheet, handleDarkMode}) => {
-    const darkmodeBtnRef = useRef();
+interface IProps {
+    handleSheet(): void;
+    handleDarkMode(): void;
+}
+
+const Header = ({ handleSheet, handleDarkMode }: IProps) => {
+    const darkmodeBtnRef = useRef<HTMLInputElement>(null);
 
     useEffect(() => {
         const condition = window.localStorage.getItem("data-dark") || window.matchMedia("(prefers-color-scheme: dark)").matches;
-        if (condition) {
+        if (condition && darkmodeBtnRef.current) {
           darkmodeBtnRef.current.click();
         }
       }, []);

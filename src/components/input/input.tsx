@@ -2,15 +2,24 @@ import React, { useRef, useEffect } from 'react';
 import styles from './input.module.scss';
 import Icon from '../icon/icon';
 
-const Input = (props) => {
-    const inputRef = useRef();
+interface IProps {
+    inputValue: string | ArrayBuffer;
+    checkFileType(targetFile: File): void;
+    onChangeValue(value: string): void;
+    onErase(): void;
+}
+
+const Input = (props: IProps) => {
+    const inputRef = useRef<HTMLTextAreaElement>(null);
 
     useEffect(() => {
-        inputRef.current.focus();
+        if (inputRef.current) {
+            inputRef.current.focus();
+        }
     }, [inputRef]);
 
-    const convertTabSpace = (event) => {
-        if (event.key === "Tab") {
+    const convertTabSpace = (event: React.KeyboardEvent) => {
+        if (event.key === "Tab" && inputRef.current) {
             event.preventDefault();
             const insertStr = "    ";
             const inputBox = inputRef.current;
@@ -25,11 +34,17 @@ const Input = (props) => {
         }
     }
 
-    const onInput = (event) => props.onChangeValue(event.target.value);
+    const onInput = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+        if (event.target) {
+            props.onChangeValue(event.target.value);
+        }
+    };
 
-    const onDropFile = (event) => {
-        event.preventDefault();
-        props.checkFileType(event.dataTransfer.files[0]);
+    const onDropFile = (event: React.DragEvent) => {
+        if (event.dataTransfer) {
+            event.preventDefault();
+            props.checkFileType(event.dataTransfer.files[0]);
+        }
     }
 
     return (
@@ -43,7 +58,7 @@ const Input = (props) => {
             onDragEnter={e => e.preventDefault()}
             onDragOver={e => e.preventDefault()}
             onDrop={onDropFile}
-            value={props.inputValue}
+            value={typeof props.inputValue === "string" ? props.inputValue : ""}
             spellCheck="false"
             aria-label="input box"
         />
