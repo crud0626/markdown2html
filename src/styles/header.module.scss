@@ -1,5 +1,5 @@
-@use "./../../common/colors";
-@use "./../../common/sizes";
+@use "./common/colors";
+@use "./common/sizes";
 
 header {
   flex-shrink: 0;
@@ -90,7 +90,7 @@ header {
   left: 4px;
   height: 22px;
   width: 22px;
-  background: #fff center/15px no-repeat url("../../../public/images/sun.png");
+  background: #fff center/15px no-repeat url("../assets/sun.png");
   -webkit-transition: 0.5s;
   transition: 0.4s;
   border-radius: 20px;
@@ -101,7 +101,7 @@ header {
   box-shadow: inset 1px 1px 2px #222;
 
   &::before {
-    background-image: url("../../../public/images/moon.png");
+    background-image: url("../assets/moon.png");
     -webkit-transform: sizes.$darkmodeBarMove;
     -ms-transform: sizes.$darkmodeBarMove;
     transform: sizes.$darkmodeBarMove;

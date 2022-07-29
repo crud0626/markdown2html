@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import styles from './header.module.scss';
+import styles from '../../styles/header.module.scss';
+const mainlogo = require('../../assets/mainlogo.png');
 
 interface IProps {
     handleSheet(): void;
@@ -25,7 +26,7 @@ const Header = ({ handleSheet, handleDarkMode }: IProps) => {
                     </button>
                 </div>
                 <a href='https://www.mdtohtml.com' className={styles.center}>
-                    <img src="./images/mainlogo.png" alt="mainlogo" />
+                    <img src={mainlogo} alt="mainlogo" />
                     <h1>MD TO HTML</h1>
                 </a>
                 <div className={styles.right}>

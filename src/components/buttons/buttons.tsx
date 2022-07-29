@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import Icon from '../icon/icon';
-import styles from './buttons.module.scss';
+import styles from '../../styles/buttons.module.scss';
 
 interface IProps {
     copyValue(): void;

@@ -3,7 +3,7 @@ import Buttons from '../buttons/buttons';
 import Cheatsheet from '../cheatsheet/cheatsheet';
 import Input from '../input/input';
 import Output from '../output/output';
-import styles from './section.module.scss';
+import styles from '../../styles/section.module.scss';
 
 interface IProps {
     isSheet: boolean;

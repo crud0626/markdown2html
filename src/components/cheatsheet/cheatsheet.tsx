@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './cheatsheet.module.scss';
+import styles from '../../styles/cheatsheet.module.scss';
 
 const Cheatsheet = () => (
         <div className={`${styles.container} cheatsheet_container`}>

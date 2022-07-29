@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import styles from './input.module.scss';
+import styles from '../../styles/input.module.scss';
 import Icon from '../icon/icon';
 
 interface IProps {
