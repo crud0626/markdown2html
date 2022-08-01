@@ -10,15 +10,14 @@ interface IProps {
     checkFileType(targetFile: File): void;
 }
 
-const Buttons = React.forwardRef<HTMLSpanElement, IProps>((props, ref) => {
+const Buttons = React.forwardRef<HTMLSpanElement, IProps>(({ copyValue, downloadFile, checkFileType }, ref) => {
     const [toggle, setToggle] = useState<boolean>(false);
 
-    const onBtnToggle = () => setToggle(toggle => !toggle);
+    const onBtnToggle = (): void => setToggle(toggle => !toggle);
 
-    const onChangeFile = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const onChangeFile = (event: React.ChangeEvent<HTMLInputElement>): void => {
         event.preventDefault();
-        if (event.target.files) props.checkFileType(event.target.files[0]);
-        return;
+        if (event.target.files) checkFileType(event.target.files[0]);
     }
 
     return(
@@ -28,7 +27,10 @@ const Buttons = React.forwardRef<HTMLSpanElement, IProps>((props, ref) => {
                     <input type="file" id='upload' accept='.txt,.md' onChange={onChangeFile}/>
                 </form>
                 <span>Add File</span>
-                    <Icon define={addIcon} />
+                    <Icon 
+                        define={addIcon} 
+                        transform={"translate(0.000000,96.000000) scale(0.100000,-0.100000)"}
+                    />
             </label>
             <div id='dropdown_container' className={`${styles.button} ${styles.dropdown_container} ${toggle ? "open": ""} button`} onClick={onBtnToggle}>
                 <div className={styles.dropdown_btn}>
@@ -36,20 +38,23 @@ const Buttons = React.forwardRef<HTMLSpanElement, IProps>((props, ref) => {
                     <div className="arrow"></div>
                 </div>
                 <div id='inner_btns_container' className={styles.inner_container}>
-                    <button className="inner_btn" data-role="markdown" onClick={props.downloadFile} aria-label="markdown download button">
+                    <button className="inner_btn" data-role="markdown" onClick={downloadFile} aria-label="markdown download button">
                         MARKDOWN
                     </button>
-                    <button className="inner_btn" data-role="html" onClick={props.downloadFile} aria-label="html download button">
+                    <button className="inner_btn" data-role="html" onClick={downloadFile} aria-label="html download button">
                         HTML
                     </button>
                 </div>
             </div>
-            <button className={`${styles.button} button`} onClick={props.copyValue} aria-label="copy button">
+            <button className={`${styles.button} button`} onClick={copyValue} aria-label="copy button">
                 <span ref={ref}>Copy</span>
-                    <Icon define={copyIcon} />
+                    <Icon 
+                        define={copyIcon} 
+                        transform={"translate(0.000000,96.000000) scale(0.100000,-0.100000)"}
+                    />
             </button>
         </div>
     );
 });
 
-export default Buttons;
+export default React.memo(Buttons);

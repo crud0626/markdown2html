@@ -10,7 +10,7 @@ interface IProps {
     onErase(): void;
 }
 
-const Input = (props: IProps) => {
+const Input = ({ inputValue, checkFileType, onChangeValue, onErase }: IProps) => {
     const inputRef = useRef<HTMLTextAreaElement>(null);
 
     useEffect(() => {
@@ -31,20 +31,20 @@ const Input = (props: IProps) => {
             inputBox.selectionStart = selectionStart + insertStr.length;
             inputBox.selectionEnd = selectionStart + insertStr.length;
             
-            props.onChangeValue(newValue);
+            onChangeValue(newValue);
         }
     }
 
     const onInput = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         if (event.target) {
-            props.onChangeValue(event.target.value);
+            onChangeValue(event.target.value);
         }
     };
 
     const onDropFile = (event: React.DragEvent) => {
         if (event.dataTransfer) {
             event.preventDefault();
-            props.checkFileType(event.dataTransfer.files[0]);
+            checkFileType(event.dataTransfer.files[0]);
         }
     }
 
@@ -59,12 +59,15 @@ const Input = (props: IProps) => {
             onDragEnter={e => e.preventDefault()}
             onDragOver={e => e.preventDefault()}
             onDrop={onDropFile}
-            value={typeof props.inputValue === "string" ? props.inputValue : ""}
+            value={typeof inputValue === "string" ? inputValue : ""}
             spellCheck="false"
             aria-label="input box"
         />
-        <button id='eraser' className={styles.eraser_btn} onClick={props.onErase} aria-label="erase input button">
-            <Icon define={eraserIcon} />
+        <button id='eraser' className={styles.eraser_btn} onClick={onErase} aria-label="erase input button">
+            <Icon 
+                define={eraserIcon} 
+                transform={"translate(0.000000,96.000000) scale(0.100000,-0.100000)"}
+            />
         </button>
     </div>   
     );

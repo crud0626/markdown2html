@@ -10,14 +10,14 @@ interface IProps {
     isDark: boolean;
 }
 
-const Section = ({isSheet, isDark}: IProps) => {
+const Section = ({ isSheet, isDark }: IProps) => {
     const [inputValue, setInputValue] = useState<string | ArrayBuffer>("# MD TO HTML\nHello, This is a site that converts markdown into html.\n## Features\n1. You can download it to markdown(.md) or html(.txt)\n2. If you have an already written md file, you can upload it.\n3. The result is the same as Github\n4. It is free!\n\n---\n\n> Thank you, enjoy!");
 
     const outputRef = useRef<HTMLDivElement>(null);
     const copySpanRef = useRef<HTMLSpanElement>(null);
 
-    const onChangeValue = (value: string): void => {setInputValue(value)};
-    const onErase = useCallback((): void => {setInputValue("")}, []);
+    const onChangeValue = (value: string): void => setInputValue(value);
+    const onErase = useCallback((): void => setInputValue(""), []);
     
     const copyValue = (): void => {
         if (inputValue && copySpanRef.current) {
@@ -34,22 +34,7 @@ const Section = ({isSheet, isDark}: IProps) => {
         alert("No value entered");
     }
 
-    const checkFileType = (targetFile: File): void => {
-        if (targetFile.type === "text/plain") {
-            uploadFile(targetFile);
-            return;
-        }
-
-        const fileExt = targetFile.name.split(".").pop()?.toLowerCase();
-        if (fileExt === "md" || fileExt === "markdown") {
-            uploadFile(targetFile);
-            return;
-        }
-
-        alert("You can only upload text or markdown files.");
-    }
-
-    const uploadFile = (targetFile: File): void => {
+    const uploadFile = useCallback((targetFile: File): void => {
         const reader = new FileReader();
         reader.onload = () => {
             setInputValue(reader.result as string);
@@ -61,7 +46,19 @@ const Section = ({isSheet, isDark}: IProps) => {
         });
 
         reader.readAsText(targetFile);
-    }
+    }, []);
+
+    const checkFileType = useCallback((targetFile: File): void => {
+        const fileExt = targetFile.name.split(".").pop()?.toLowerCase();
+        if (targetFile.type === "text/plain" ||
+        (fileExt === "md" || fileExt === "markdown")
+        ) {
+            uploadFile(targetFile);
+            return;
+        }
+
+        alert("You can only upload text or markdown files.");
+    }, [uploadFile]);
 
     const downloadFile = ({target}: React.MouseEvent): void => {
         let data, dataType = "";

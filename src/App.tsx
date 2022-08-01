@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import './App.scss';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
@@ -8,13 +8,13 @@ const App = () => {
   const [isOpenSheet, setIsOpenSheet] = useState<boolean>(false);
   const [isDark, setIsDark] = useState<boolean>(false);
 
-  const handleSheet = (): void => setIsOpenSheet(isOpenSheet => !isOpenSheet);
-  const handleDarkMode = (): void => {
+  const handleSheet = useCallback(() => setIsOpenSheet(isOpenSheet => !isOpenSheet), []);
+  const handleDarkMode = useCallback(() => {
     isDark ? window.localStorage.removeItem("data-dark") 
     : window.localStorage.setItem("data-dark", "true");
 
     setIsDark(isDark => !isDark);
-  };
+  }, [isDark]);
 
   return (
     <>

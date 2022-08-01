@@ -1,13 +1,16 @@
-import { nanoid } from 'nanoid';
 import React from 'react';
+import { nanoid } from 'nanoid';
 
 interface IProps {
     define: string[];
+    width?: number;
+    height?: number;
+    transform?: string;
 }
 
-const Icon = ({ define }: IProps) => (
-    <svg viewBox="0 0 96.000000 96.000000">
-        <g transform="translate(0.000000,96.000000) scale(0.100000,-0.100000)">
+const Icon = ({ define, width=96, height=96, transform }: IProps) => (
+    <svg viewBox={`0 0 ${width} ${height}`}>
+        <g transform={transform}>
             {define.map(item => (
                 <path key={nanoid()} d={item}></path>
             ))}
@@ -15,4 +18,4 @@ const Icon = ({ define }: IProps) => (
     </svg>  
 );
 
-export default Icon;
+export default React.memo(Icon);
