@@ -38,7 +38,22 @@ section[class="footnotes"] {
 
     & > li {
       margin: 16px 0;
+      position: relative;
     }
+  }
+}
+
+:global {
+  .clicked-note::before {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    bottom: -8px;
+    left: -24px;
+    pointer-events: none;
+    content: "";
+    border: 2px solid colors.$linkColor;
+    border-radius: 6px;
   }
 }
 
