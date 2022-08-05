@@ -1,6 +1,6 @@
 import React, { useCallback, useRef, useState } from 'react';
 import Buttons from '../Buttons/Buttons';
-import Cheatsheet from '../Cheatsheet/Cheatsheet';
+import Cheatsheet from '../CheatSheet/CheatSheet';
 import Input from '../Input/Input';
 import Output from '../Output/Output';
 import styles from '../../styles/section.module.scss';

@@ -6,7 +6,7 @@
   margin: auto;
   padding: 0 20px 20px 20px;
   position: absolute;
-  width: sectionWidth;
+  width: sizes.$sectionWidth;
   height: 100%;
   flex: 1 1;
   border-left: 1px solid colors.$mainColor;
@@ -24,38 +24,9 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-}
 
-.sheet_container {
-  width: 45%;
-}
-
-.sheet {
-  @include mixins.markdown;
-  width: 100%;
-  
-  & table {
-    width: 100%;
-
-    & td {
-      padding: 10px 15px;
-    }
-
-    & h1,h2 {
-      border: 0;
-    }
-  
-    & h1, h2, h3, h4, h5, h6, ul, ol {
-      margin: 0;
-    }
-  }
-
-  & > p {
-    font-size: 1.3rem;
-  }
-
-  & .task_list {
-    list-style: none;
+  & .content {
+    flex-basis: 48%;
   }
 }
 
@@ -78,9 +49,14 @@
   }
 }
 
-// Media Query
 @include mixins.tablet {
   .sheet_container {
     width: 90%;
+  }
+}
+
+@media screen and (max-width: 1120px) {
+  .body {
+    display: block;
   }
 }
