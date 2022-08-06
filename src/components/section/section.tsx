@@ -60,12 +60,12 @@ const Section = ({ isSheet, isDark }: IProps) => {
         alert("You can only upload text or markdown files.");
     }, [uploadFile]);
 
-    const downloadFile = ({target}: React.MouseEvent): void => {
+    const downloadFile = (event: React.MouseEvent): void => {
         let data, dataType = "";
         const link = document.createElement("a");
         
-        if (outputRef.current && target instanceof HTMLButtonElement) {
-            switch(target.dataset.role) {
+        if (outputRef.current && event.target instanceof HTMLButtonElement) {
+            switch(event.target.dataset.role) {
                 case "html":
                     data = outputRef.current.innerHTML;
                     dataType = "text/html";
@@ -83,7 +83,7 @@ const Section = ({ isSheet, isDark }: IProps) => {
         }
 
         if(data) {
-            const blobData = new Blob([data], {type: dataType});
+            const blobData = new Blob([data], { type: dataType });
             link.href = window.URL.createObjectURL(blobData);
             link.click();
         }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useState } from 'react';
 import Icon from '../Icon/Icon';
 import styles from '../../styles/buttons.module.scss';
@@ -15,10 +15,10 @@ const Buttons = React.forwardRef<HTMLSpanElement, IProps>(({ copyValue, download
 
     const onBtnToggle = (): void => setToggle(toggle => !toggle);
 
-    const onChangeFile = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    const onChangeFile = useCallback((event: React.ChangeEvent<HTMLInputElement>): void => {
         event.preventDefault();
         if (event.target.files) checkFileType(event.target.files[0]);
-    }
+    }, [checkFileType]);
 
     return(
         <div className={`${styles.container} buttons_container`}>

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useCallback } from 'react';
 import { eraserIcon } from '../../constants/iconPath';
 import styles from '../../styles/input.module.scss';
 import Icon from '../Icon/Icon';
@@ -19,7 +19,7 @@ const Input = ({ inputValue, checkFileType, onChangeValue, onErase }: IProps) =>
         }
     }, [inputRef]);
 
-    const convertTabSpace = (event: React.KeyboardEvent) => {
+    const convertTabSpace = (event: React.KeyboardEvent): void => {
         if (event.key === "Tab" && inputRef.current) {
             event.preventDefault();
             const insertStr = "    ";
@@ -35,18 +35,18 @@ const Input = ({ inputValue, checkFileType, onChangeValue, onErase }: IProps) =>
         }
     }
 
-    const onInput = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const onInput = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
         if (event.target) {
             onChangeValue(event.target.value);
         }
     };
 
-    const onDropFile = (event: React.DragEvent) => {
+    const onDropFile = useCallback((event: React.DragEvent): void => {
         if (event.dataTransfer) {
             event.preventDefault();
             checkFileType(event.dataTransfer.files[0]);
         }
-    }
+    }, [checkFileType]);
 
     return (
         <div className={styles.container}>

@@ -10,12 +10,12 @@ interface IProps {
 }
 
 const Output = React.forwardRef<HTMLDivElement, IProps>(({ inputValue }, ref) => {
-    const handleNoteEffect = useCallback(({ target }: React.MouseEvent) => {
+    const handleNoteEffect = useCallback((event: React.MouseEvent): void => {
         const clickedNotes = document.querySelectorAll(".clicked-note");
         if (clickedNotes) clickedNotes.forEach(elem => elem.classList.remove("clicked-note"));
 
-        if (target instanceof HTMLElement && target.matches("sup")) {
-            const anchorElem = target.closest(".footnote-ref");
+        if (event.target instanceof HTMLElement && event.target.matches("sup")) {
+            const anchorElem = event.target.closest(".footnote-ref");
 
             if (anchorElem instanceof HTMLAnchorElement) {
                 const targetId = anchorElem.href.match(/fn\d$/);
@@ -28,24 +28,24 @@ const Output = React.forwardRef<HTMLDivElement, IProps>(({ inputValue }, ref) =>
         }
     }, []);
 
-    return(
+    return (
         <div id='outputbox' ref={ref} className={styles.box} onClick={handleNoteEffect}>
             {
                 typeof inputValue === "string" &&
                 <ReactMarkdown 
-                children={inputValue} 
-                remarkPlugins={[remarkGfm, remarkEmoji, remarkBreaks]} 
-                components={{
-                    a: ({ node, children, ...props}) => {
-                        if(!(props.role === "doc-backlink" || props.role === "doc-noteref")) {
-                           props['target'] = '_blank';
-                           props['rel'] = 'noopener noreferrer';
-                        }
-                        
-                        return <a {...props}>{children}</a>;
-                    }}
-                }
-             />
+                    children={inputValue} 
+                    remarkPlugins={[remarkGfm, remarkEmoji, remarkBreaks]} 
+                    components={{
+                        a: ({ node, children, ...props}) => {
+                            if(!(props.role === "doc-backlink" || props.role === "doc-noteref")) {
+                            props['target'] = '_blank';
+                            props['rel'] = 'noopener noreferrer';
+                            }
+                            
+                            return <a {...props}>{children}</a>;
+                        }}
+                    }
+                />
             }
          </div>
     );
