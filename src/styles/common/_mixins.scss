@@ -2,7 +2,7 @@
 @use 'colors';
 
 @mixin tablet {
-    @media screen and (max-width: sizes.$tabletSize) {
+    @media screen and (max-width: sizes.$tablet-size) {
         @content;
     }
 }
@@ -10,31 +10,31 @@
 // markdown
 @mixin markdown {
     h1, h2, h3, h4, h5, h6 {
-    margin: 24px 0 16px 0;
+    margin: sizes.$even-space-6x 0 sizes.$even-space-4x 0;
     }
 
     h1, h2 {
         padding-bottom: 0.3em;
-        border-bottom: 1px solid #d8dee4;
+        border-bottom: 1px solid colors.$light-blue-color;
     }
 
     blockquote {
         margin: 0;
         padding: 0 1em;
-        color: colors.$codeBlockTextColor;
-        border-left: 0.25em solid colors.$lineBlueColor;
+        color: colors.$codeblock-text-color;
+        border-left: 0.25em solid colors.$light-blue-color;
     }
 
     code {
         padding: 0.2em 0.4em;
         margin: 0;
         font-size: 85%;
-        background-color: colors.$codeBgColor;
-        border-radius: 6px;
+        background-color: colors.$code-bg-color;
+        border-radius: sizes.$default-border-radius;
     }
 
     a {
-        color: colors.$linkColor;
+        color: colors.$link-blue-color;
         text-decoration: none;
 
         &[class="footnote-ref"] {
@@ -43,7 +43,7 @@
     }
 
     ul, ol {
-        padding-left: 32px;
+        padding-left: sizes.$even-space-8x;
     }
 
     ul[class="contains-task-list"] {
@@ -52,12 +52,12 @@
     }
 
     pre {
-        padding: 16px;
+        padding: sizes.$even-space-4x;
         overflow: auto;
         font-size: 85%;
         line-height: 1.45;
-        background-color: colors.$mainColor;
-        border-radius: 6px;
+        background-color: colors.$main-color;
+        border-radius: sizes.$default-border-radius;
 
         & code {
             margin: 0;
@@ -86,8 +86,8 @@
     hr {
         height: 0.25em;
         padding: 0;
-        margin: 24px 0;
-        background-color: colors.$lineBlueColor;
+        margin: sizes.$even-space-6x 0;
+        background-color: colors.$line-light-blue-color;
         border: 0;
     }
 
@@ -98,27 +98,22 @@
         overflow: auto;
         border-collapse: collapse;
 
-        & thead tr {
-            background-color: #ffffff;
-            border-top: 1px solid #d8dee4;
-        }
-
-        & tbody tr {
-            background-color: #ffffff;
-            border-top: 1px solid #d8dee4;
+        & tr {
+            background-color: colors.$white-color;
+            border-top: 1px solid colors.$light-blue-color;
 
             &:nth-child(odd) {
-                background-color: colors.$codeBlockBgColor;
+                background-color: colors.$codeblock-bg-color;
             }
         }
 
         & td {
             padding: 6px 13px;
-            border: 1px solid colors.$lineBlueColor;
+            border: 1px solid colors.$line-light-blue-color;
         }
 
         & th {
-            border: 1px solid colors.$lineBlueColor;
+            border: 1px solid colors.$line-light-blue-color;
             padding: 6px 13px;
             font-weight: 600;
         }
@@ -126,24 +121,26 @@
 }
 
 // Scroll bar
-@mixin scrollbar {
-    width: sizes.$scrollBarSize;
-    height: sizes.$scrollBarSize;
-}
-
-@mixin scrollbar-thumb {
-    height: 17%;
-    background: colors.$scrollThumbColor;
-    border-radius: sizes.$scrollBorderRadius;
-}
-
-@mixin scrollbar-thumb-hover {
-    background: colors.$scrollThumbHoverColor;
-}
-
-@mixin scrollbar-track {
-    background: colors.$scrollTrackColor;
-    border-radius: sizes.$scrollBorderRadius;
+@mixin scrollbar-props {
+    &::-webkit-scrollbar {
+        width: sizes.$scroll-bar-size;
+        height: sizes.$scroll-bar-size;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        height: 17%;
+        background: colors.$scroll-thumb-color;
+        border-radius: sizes.$scroll-border-radius;
+    }
+    
+    &::-webkit-scrollbar-thumb:hover {
+        background: colors.$scroll-thumb-hover-color;
+    }
+    
+    &::-webkit-scrollbar-track {
+        background: colors.$scroll-track-color;
+        border-radius: sizes.$scroll-border-radius;
+    }
 }
 
 // Arrow
@@ -154,7 +151,7 @@
     width: 0.15rem;
     height: 100%;
     transition: all 0.5s;
-    background: #394a6d;
+    background: colors.$arrow-bg-color;
     left: $leftPX;
     transform: rotate($rotateDeg);
 }

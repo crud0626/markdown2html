@@ -1,4 +1,6 @@
 @use "./styles/common/mixins";
+@use "./styles/common/colors";
+@use "./styles/common/sizes";
 
 * {
   box-sizing: border-box;
@@ -11,6 +13,7 @@ html {
 
   & body {
     @extend html;
+    @include mixins.scrollbar-props;
     height: 100%;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
       "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -32,28 +35,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
-// Scroll bar
-body {
-  &::-webkit-scrollbar {
-    @include mixins.scrollbar;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    @include mixins.scrollbar-thumb;
-  }
-
-  &::-webkit-scrollbar-thumb:hover {
-    @include mixins.scrollbar-thumb-hover;
-  }
-
-  &::-webkit-scrollbar-track {
-    @include mixins.scrollbar-track;
-  }
-}
-
 // Arrow toggle
 .arrow {
-  margin-left: 15px;
+  margin-left: sizes.$odd-space-3x;
   position: relative;
   height: 11px;
   width: 10px;
@@ -85,75 +69,75 @@ body {
 
 // Dark mode
 section.dark {
-  background: #24292f;
-  color: white;
+  background: colors.$main-dark-color;
+  color: colors.$white-color;
 
   & #outputbox,
   & #inputbox {
-    background: #1e1f21;
-    color: white;
+    background: colors.$sub-dark-color;
+    color: colors.$white-color;
   }
 
   & #outputbox blockquote {
-    color: white;
+    color: colors.$white-color;
   }
 
   & .inner_btn {
-    background: #1e1f21;
-    color: white;
+    background: colors.$sub-dark-color;
+    color: colors.$white-color;
   
     &:hover {
-      background: #a1c1ea;
-      color: black;
+      background: colors.$btn-hover-color;
+      color: colors.$black-color;
     }
   }
 
   & .sheet_quote {
-    color: white;
+    color: colors.$white-color;
   }
 
   & #eraser {
-    background: #1e1f21;
+    background: colors.$sub-dark-color;
   
     &:hover {
-      fill: white;
+      fill: colors.$white-color;
     }
   }
 }
 
 section.dark div.buttons_container {
   & > .button {
-    background: #1e1f21;
-    color: white;
-    fill: white;
+    background: colors.$sub-dark-color;
+    color: colors.$white-color;
+    fill: colors.$white-color;
 
     &:hover {
-      background: #a1c1ea;
-      color: black;
+      background: colors.$btn-hover-color;
+      color: colors.$black-color;
     }
   }
 
   & > #dropdown_container:hover {
-    background: #1e1f21;
-    color: white;
+    background: colors.$sub-dark-color;
+    color: colors.$white-color;
   }
 
   & div.arrow::after,
   div.arrow::before {
-    background: white;
+    background: colors.$white-color;
   }
 }
 
 section.dark div.cheatsheet_container {
-  background: #24292f;
-  color: white;
+  background: colors.$main-dark-color;
+  color: colors.$white-color;
 
   & th, td {
-    background: #1e1f21;
-    color: white;
+    background: colors.$sub-dark-color;
+    color: colors.$white-color;
   }
 
   & td pre {
-    background: rgba(175, 184, 193, 0.2);
+    background: colors.$code-bg-color;
   }
 }

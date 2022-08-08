@@ -1,24 +1,39 @@
-$headerHeight: 62px;
-$footerHeight: 62px;
-$sectionWidth: 90%;
-$btnImageSize: 32px;
-$btnBorderRadius: 5px;
+$header-height: 62px;
+$footer-height: 62px;
+$section-width: 90%;
+$default-border-radius: 6px;
+$btn-image-size: 32px;
+$btn-border-radius: 5px;
 
-$tabletSize: 1024px;
+$tablet-size: 1024px;
 
 /* input, output box */
-
-$boxSize: 45%;
-$boxBorderRadius: 3px;
-$boxBorder: 1px solid rgba(0, 0, 0, 0.4);
-$boxHeight: 55vh;
-$boxMaxWidth: 600px;
-$boxMinWidth: 450px;
-$boxMargin: 0 auto 50px auto;
+$box-size: 45%;
+$box-border-radius: 3px;
+$box-border: 1px solid rgba(0, 0, 0, 0.4);
+$box-height: 55vh;
+$box-max-width: 600px;
+$box-min-width: 450px;
+$box-margin: 0 auto 50px auto;
 
 /* scroll Bar */
+$scroll-bar-size: 8px;
+$scroll-border-radius: 10px;
 
-$scrollBarSize: 8px;
-$scrollBorderRadius: 10px;
+$darkmode-bar-move: translateX(16px);
 
-$darkmodeBarMove: translateX(16px);
+// Margin & Padding
+$odd-space-1x: 5px;
+$odd-space-2x: 10px;
+$odd-space-3x: 15px;
+$odd-space-4x: 20px;
+
+$even-space-2x: 8px;
+$even-space-3x: 12px;
+$even-space-4x: 16px;
+$even-space-6x: 24px;
+$even-space-8x: 32px;
+
+// Icon
+$icon-medium-size: 16px;
+$icon-large-size: 32px;
