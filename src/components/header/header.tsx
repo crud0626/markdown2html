@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import styles from '../../styles/header.module.scss';
+import styles from '../../styles/Header.module.scss';
 const mainlogo = require('../../assets/mainlogo.png');
 
 interface IProps {

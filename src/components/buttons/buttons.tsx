@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { useState } from 'react';
 import Icon from '../Icon/Icon';
-import styles from '../../styles/buttons.module.scss';
+import styles from '../../styles/Buttons.module.scss';
 import { addIcon, copyIcon } from '../../constants/iconPath';
 
 interface IProps {
@@ -24,7 +24,7 @@ const Buttons = React.forwardRef<HTMLSpanElement, IProps>(({ copyValue, download
         <div className={`${styles.container} buttons_container`}>
             <label htmlFor='upload' className={`${styles.button} button`} aria-label="add file button">
                 <form action="#">
-                    <input type="file" id='upload' accept='.txt,.md' onChange={onChangeFile}/>
+                    <input type="file" accept='.txt,.md' onChange={onChangeFile}/>
                 </form>
                 <span>Add File</span>
                     <Icon 
@@ -32,12 +32,12 @@ const Buttons = React.forwardRef<HTMLSpanElement, IProps>(({ copyValue, download
                         transform={"translate(0.000000,96.000000) scale(0.100000,-0.100000)"}
                     />
             </label>
-            <div id='dropdown_container' className={`${styles.button} ${styles.dropdown_container} ${toggle ? "open": ""} button`} onClick={onBtnToggle}>
+            <div className={`${styles.button} ${styles.dropdown_container} ${toggle ? "open": ""} button dropdown-container`} onClick={onBtnToggle}>
                 <div className={styles.dropdown_btn}>
                     <span>Download</span>
                     <div className="arrow"></div>
                 </div>
-                <div id='inner_btns_container' className={styles.inner_container}>
+                <div className={`${styles.inner_container} btns_inner_container`}>
                     <button className="inner_btn" data-role="markdown" onClick={downloadFile} aria-label="markdown download button">
                         MARKDOWN
                     </button>

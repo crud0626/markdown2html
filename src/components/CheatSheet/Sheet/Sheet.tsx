@@ -2,7 +2,7 @@ import { nanoid } from 'nanoid';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { SheetContent } from '../../../constants/cheatSheetList';
-import styles from '../../../styles/sheet.module.scss';
+import styles from '../../../styles/Sheet.module.scss';
 
 interface IProps {
     title: string;

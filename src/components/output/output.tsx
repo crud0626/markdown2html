@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import styles from '../../styles/output.module.scss';
+import styles from '../../styles/Output.module.scss';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import remarkEmoji from 'remark-emoji';
@@ -11,8 +11,8 @@ interface IProps {
 
 const Output = React.forwardRef<HTMLDivElement, IProps>(({ inputValue }, ref) => {
     const handleNoteEffect = useCallback((event: React.MouseEvent): void => {
-        const clickedNotes = document.querySelectorAll(".clicked-note");
-        if (clickedNotes) clickedNotes.forEach(elem => elem.classList.remove("clicked-note"));
+        const clickedNotes = document.querySelectorAll(".clicked_note");
+        if (clickedNotes) clickedNotes.forEach(elem => elem.classList.remove("clicked_note"));
 
         if (event.target instanceof HTMLElement && event.target.matches("sup")) {
             const anchorElem = event.target.closest(".footnote-ref");
@@ -22,14 +22,14 @@ const Output = React.forwardRef<HTMLDivElement, IProps>(({ inputValue }, ref) =>
 
                 if (targetId) {
                     const targetNote = document.querySelector(`#${targetId[0]}`);
-                    targetNote?.classList.add("clicked-note");
+                    targetNote?.classList.add("clicked_note");
                 }
             }
         }
     }, []);
 
     return (
-        <div id='outputbox' ref={ref} className={styles.box} onClick={handleNoteEffect}>
+        <div ref={ref} className={`${styles.box} outputbox`} onClick={handleNoteEffect}>
             {
                 typeof inputValue === "string" &&
                 <ReactMarkdown 

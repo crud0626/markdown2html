@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useCallback } from 'react';
 import { eraserIcon } from '../../constants/iconPath';
-import styles from '../../styles/input.module.scss';
+import styles from '../../styles/Input.module.scss';
 import Icon from '../Icon/Icon';
 
 interface IProps {
@@ -51,9 +51,8 @@ const Input = ({ inputValue, checkFileType, onChangeValue, onErase }: IProps) =>
     return (
         <div className={styles.container}>
         <textarea 
-            id='inputbox'
             ref={inputRef}
-            className={styles.box} 
+            className={`${styles.box} inputbox`} 
             onKeyDown={convertTabSpace}
             onChange={onInput}
             onDragEnter={e => e.preventDefault()}
@@ -63,7 +62,7 @@ const Input = ({ inputValue, checkFileType, onChangeValue, onErase }: IProps) =>
             spellCheck="false"
             aria-label="input box"
         />
-        <button id='eraser' className={styles.eraser_btn} onClick={onErase} aria-label="erase input button">
+        <button className={`${styles.eraser_btn} eraser_btn`} onClick={onErase} aria-label="erase input button">
             <Icon 
                 define={eraserIcon} 
                 transform={"translate(0.000000,96.000000) scale(0.100000,-0.100000)"}

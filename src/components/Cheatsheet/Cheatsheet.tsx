@@ -1,6 +1,6 @@
 import { nanoid } from 'nanoid';
 import { leftItems, rightItems } from '../../constants/cheatSheetList';
-import styles from '../../styles/cheatsheet.module.scss';
+import styles from '../../styles/CheatSheet.module.scss';
 import Sheet from './Sheet/Sheet';
 
 const Cheatsheet = () => (

@@ -52,7 +52,7 @@ code {
 }
 
 .open {
-  & #inner_btns_container {
+  & .btns_inner_container {
     visibility: visible;
     transform: translateY(0%);
     opacity: 1;
@@ -72,13 +72,13 @@ section.dark {
   background: colors.$main-dark-color;
   color: colors.$white-color;
 
-  & #outputbox,
-  & #inputbox {
+  & .outputbox,
+  & .inputbox {
     background: colors.$sub-dark-color;
     color: colors.$white-color;
   }
 
-  & #outputbox blockquote {
+  & .outputbox blockquote {
     color: colors.$white-color;
   }
 
@@ -96,7 +96,7 @@ section.dark {
     color: colors.$white-color;
   }
 
-  & #eraser {
+  & .eraser_btn {
     background: colors.$sub-dark-color;
   
     &:hover {
@@ -117,7 +117,7 @@ section.dark div.buttons_container {
     }
   }
 
-  & > #dropdown_container:hover {
+  & > .dropdown_container:hover {
     background: colors.$sub-dark-color;
     color: colors.$white-color;
   }

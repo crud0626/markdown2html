@@ -1,6 +1,6 @@
 import React from 'react';
 import { githubIcon } from '../../constants/iconPath';
-import styles from '../../styles/footer.module.scss';
+import styles from '../../styles/Footer.module.scss';
 import Icon from '../Icon/Icon';
 
 const Footer = () => (
@@ -10,7 +10,7 @@ const Footer = () => (
                     <span>Copyright 2022.</span>
                     <span>CRUD0626 All rights reserved.</span>
                 </div>
-                <div className={styles.links_container}>
+                <div>
                     <a 
                         href="https://github.com/crud0626" 
                         target="_blank" 
