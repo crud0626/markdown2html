@@ -24,7 +24,7 @@ const Buttons = React.forwardRef<HTMLSpanElement, IProps>(({ copyValue, download
         <div className={`${styles.container} buttons_container`}>
             <label htmlFor='upload' className={`${styles.button} button`} aria-label="add file button">
                 <form action="#">
-                    <input type="file" accept='.txt,.md' onChange={onChangeFile}/>
+                    <input id='upload' type="file" accept='.txt,.md' onChange={onChangeFile}/>
                 </form>
                 <span>Add File</span>
                     <Icon 
